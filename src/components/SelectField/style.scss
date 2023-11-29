@@ -1,0 +1,66 @@
+
+@import '../../styles/variables';
+
+
+.selectfield-default {
+    // Select
+    .MuiOutlinedInput-root {
+        line-height: 12px !important;
+
+        .MuiOutlinedInput-notchedOutline {
+            border-color: $component-selectfield-default-border-color !important;
+        }
+        
+        &.Mui-focused .MuiOutlinedInput-notchedOutline {
+            border-color: $component-selectfield-actived-default-border-color !important;
+        }
+    }
+
+    .MuiOutlinedInput-input {
+        display: flex !important;
+        align-items: center !important;
+
+        &.MuiSelect-select {
+            line-height: unset !important;
+            min-height: unset !important;
+            height: 12px !important;
+            font-size: 15px !important;
+        }
+    }
+
+
+    // Label
+    .MuiInputLabel-root {
+        color: $component-selectfield-label-default-color !important;
+
+        &.Mui-focused {
+            color: $component-selectfield-actived-label-default-border-color !important;
+        }
+
+        &:not(.MuiInputLabel-shrink) {
+            line-height: initial !important;
+            top: -2px !important;
+            font-size: 14px !important;
+        }
+    }
+
+
+    // Filled
+    .MuiFilledInput-root {
+        &::after {
+            border-color: $color-primary !important;
+        }
+    }
+
+    .MuiFilledInput-input {
+        display: flex !important;
+        align-items: center !important;
+    }
+}
+
+
+.selectfield-default-menuitem-avatar {
+    width: 16px !important;
+    height: 16px !important;
+    margin-right: 8px !important;
+}

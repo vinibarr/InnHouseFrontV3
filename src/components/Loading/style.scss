@@ -1,0 +1,24 @@
+
+@import '../../styles/variables';
+
+
+.backdrop-loading {
+    z-index: 9999;
+    background-color: $component-loading-default-background-color !important;
+    flex-direction: column;
+
+    .circular-progress {
+        width: 40px !important;
+        height: 40px !important;
+        color: $component-loading-default-color !important;
+    }
+
+
+    &.loading-environment {
+        background-color: transparent !important;
+    
+        .circular-progress {
+            color: $color-primary !important;
+        }
+    }
+}
