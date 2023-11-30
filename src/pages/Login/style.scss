@@ -8,13 +8,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
     position: relative;
 
     .grid-login {
-        background-color: $login-container-background-color;
+        background-color: $component-paper-default-background-color;
         height: 85%;
         position: relative;
         border-radius: $component-default-border-radius;

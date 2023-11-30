@@ -6,6 +6,7 @@
         .dialogtitle-text {
             font-size: 20px;
             line-height: 20px;
+            padding: 12px 0px;
         }
     }
 
@@ -33,11 +34,19 @@
             height: 100%;
             display: grid;
             grid-template-columns: 1fr;
-            grid-template-rows: 60px 1fr 72px;
+            grid-template-rows: 72px 1fr 72px;
             grid-template-areas: 'dialog-title' 'dialog-content' 'dialog-actions';
+
+            &.dialogform-withoutactions {
+                grid-template-rows: 72px 1fr;
+                grid-template-areas: 'dialog-title' 'dialog-content';
+            }
 
             .dialogtitle-default {
                 grid-area: dialog-title;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
             }
         
             .dialogcontent-default {

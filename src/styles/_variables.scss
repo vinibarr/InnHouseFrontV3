@@ -127,6 +127,7 @@ $component-selectfield-actived-label-default-border-color: $color-primary;
 
 
 // Dialog
+$component-dialog-default-border-radius: 20px;
 $component-dialog-sectiontitle-default-background-color: color.adjust($color-primary, $alpha: -0.1);
 
 
@@ -144,6 +145,37 @@ $component-radiooption-selected-default-color: #fff;
 
 
 
+// Admin - Appbar
+$admin-appbar-width: 80px;
+$admin-appbar-height: 60px;
+$admin-appbar-background-color: #fff;
+$admin-appbar-navigation-link-hover-background-color: color.adjust($color-primary, $alpha: -0.9);
+$admin-appbar-navigation-link-hover-color: $color-primary;
+$admin-appbar-logout-color: #e53935;
+$admin-appbar-avatar-color: rgba(255, 255, 255, 1);
+$admin-appbar-avatar-background-color: #bdbdbd;
 
-// Login
-$login-container-background-color: #fff;
+
+
+// Admin - Navigation
+$admin-navigation-background-color: #fff;
+
+$admin-navigation-link-hover-background-color: color.adjust($color-primary, $alpha: -0.92);
+$admin-navigation-link-selected-background-color: color.adjust($color-primary, $alpha: -0.88);
+$admin-navigation-link-expanded-trigger-background-color: color.adjust($color-primary, $alpha: -0.92);
+$admin-navigation-link-expanded-container-background-color: transparent;
+
+
+
+
+// Admin - Content
+$admin-content-background-color: #f5f5f5;
+
+// Admin - Content (Header)
+$admin-content-header-before-background-color: color.adjust($color-primary, $alpha: -0.3);
+$admin-content-header-before-height: 132px;
+
+$admin-content-header-height: 92px;
+$admin-content-header-title-color: rgba(255, 255, 255, 1);
+$admin-content-header-description-color: rgba(255, 255, 255, 0.9);
+$admin-content-header-iconbutton-color: rgba(255, 255, 255, 1);

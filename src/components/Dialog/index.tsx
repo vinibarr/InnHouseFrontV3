@@ -75,7 +75,7 @@ const Dialog: React.FunctionComponent<IDialogProps> = ({
                 className: `dialog-default ${className} ${fullHeight ? 'full-height' : ''}`
             }}
         >
-            <Box component='form' onSubmit={onSubmit} className='dialogform-default'>
+            <Box component='form' onSubmit={onSubmit} className={`dialogform-default ${className}`}>
                 <DialogTitle className='dialogtitle-default'>
                     <Grid container className='alignitems-center'>
                         <Grid item>

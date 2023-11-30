@@ -8,7 +8,7 @@ const DefaultConstants = {
         name: "Brazil Sales",
     },
 
-    publicUrl: `${PUBLIC_URL ?? './'}${window.location.pathname}`,
+    publicUrl: PUBLIC_URL ?? '/',
     apiUrl: `${REACT_APP_API_URL ?? baseUrl}/`,
     
     system: {

@@ -3,10 +3,8 @@ import { useMemo } from 'react';
 import Axios from 'axios';
 import DefaultConstants from '../data/Constants';
 import { useNotificationContext } from '../contexts/NotificationContext';
-import { useUserContext } from '../contexts/UserContext';
 import { authTokenStorage } from './StorageHelper';
 import { useLanguageContext } from '../contexts/LanguageContext';
-import { HttpStatusEnum } from '../data/Enums';
 
 
 const AxiosHelper = Axios.create({
@@ -16,7 +14,6 @@ const AxiosHelper = Axios.create({
 
 const AxiosInterceptor = (props: React.PropsWithChildren) => {
     const { translate } = useLanguageContext();
-    const { handleLogout } = useUserContext();
     const { showLoading, hideLoading, showToast } = useNotificationContext();
 
     useMemo(() => {
@@ -32,28 +29,21 @@ const AxiosInterceptor = (props: React.PropsWithChildren) => {
         AxiosHelper.interceptors.response.use((resp) => {
             hideLoading();
 
-            if (resp.data.authToken) {
-                const authToken: string = resp.data.authToken;
+            if (resp.data.token) {
+                const authToken: string = resp.data.token;
                 authTokenStorage.set(authToken);
+            }
+
+            if (resp.data.message) {
+                showToast('success', resp.data.message);
             }
 
             return Promise.resolve(resp);
         }, (err) => {
             hideLoading();
 
-            switch (err.response.status) {
-                case HttpStatusEnum.Unauthorized:
-                    handleLogout();
-                    showToast("warning", translate('_axiosHelperUnauthorizedStatusCodeError'));
-                    break;
-                
-                case HttpStatusEnum.UnsupportedMediaType:
-                    showToast("warning", translate('_axiosHelperUnsupportedMediaTypeStatusCodeError'));
-                    break;
-                
-                case HttpStatusEnum.InternalServerError:
-                    showToast("error", translate('_axiosHelperInternalServerErrorStatusCodeError'));
-                    break;
+            if (err.response.data.message) {
+                showToast('warning', err.response.data.message);
             }
             
             return Promise.reject(err);

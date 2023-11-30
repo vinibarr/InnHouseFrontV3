@@ -1,0 +1,39 @@
+
+@import '../../styles/variables';
+
+
+.container-toolsbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    .grid-actions {
+        flex: 1;
+    }
+
+    .grid-languages {
+        flex: 1;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: flex-start;
+
+        .avatar-language {
+            width: 20px !important;
+            height: 20px !important;
+            margin-left: 8px;
+            cursor: pointer;
+            transition: 0.2s;
+            filter: grayscale(100%);
+
+            &:hover {
+                transform: scale(1.2);
+            }
+
+            &.active {
+                filter: unset;
+            }
+        }
+    }
+}

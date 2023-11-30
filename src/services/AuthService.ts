@@ -2,28 +2,33 @@
 import { AxiosHelper } from '../helpers/AxiosHelper';
 
 
-const Login = async (formData: FormData) => {
-    return AxiosHelper.post('/Auth/Login', formData);
+const SignIn = async (formData: FormData) => {
+    return AxiosHelper.post('/login', formData);
 }
 
-const Logout = async (formData: FormData) => {
-    return AxiosHelper.post('/Auth/Logout', formData);
+const SignUp = async (formData: FormData) => {
+    return AxiosHelper.post('/sign-up', formData);
 }
 
-const LoginWithStoredAuthToken = async (formData: FormData) => {
-    return AxiosHelper.post('/Auth/LoginWithStoredAuthToken', formData);
+const SignUpEmailConfirmation = async (formData: FormData) => {
+    return AxiosHelper.post('/email-confirmation', formData);
 }
 
-const RecoverPassword = async (formData: FormData) => {
-    return AxiosHelper.post('/Auth/RecoverPassword', formData);
+const ForgotPassword = async (formData: FormData) => {
+    return AxiosHelper.post('/forgot-password', formData);
+}
+
+const ResetPassword = async (formData: FormData) => {
+    return AxiosHelper.post('/reset-password', formData);
 }
 
 
 const AuthService = {
-    Login,
-    Logout, 
-    LoginWithStoredAuthToken,
-    RecoverPassword
+    SignIn,
+    SignUp,
+    SignUpEmailConfirmation,
+    ForgotPassword,
+    ResetPassword
 }
 
 export default AuthService;

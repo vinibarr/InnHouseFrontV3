@@ -36,6 +36,11 @@
         color: #fff;
     }
 
+    &.background-secondary {
+        background: $component-default-background-color-secondary;
+        color: #fff;
+    }
+
     &.background-blue {
         background: $component-default-background-color-blue;
         color: #fff;

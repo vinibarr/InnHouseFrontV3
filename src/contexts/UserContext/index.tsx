@@ -1,11 +1,7 @@
 
-import { createContext, useContext, useState, useCallback, useEffect, useMemo } from "react";
+import { createContext, useContext, useState, useCallback, useMemo } from "react";
 import IUser from "../../interfaces/IUser";
 import AuthService from "../../services/AuthService";
-import { useNotificationContext } from "../NotificationContext";
-import { useLanguageContext } from "../LanguageContext";
-import { authTokenStorage } from "../../helpers/StorageHelper";
-import { HttpStatusEnum } from "../../data/Enums";
 
 
 interface IUserContext {
@@ -19,26 +15,15 @@ interface IUserContext {
 const UserContext = createContext<IUserContext | undefined>(undefined);
 
 const UserContextProvider = (props: React.PropsWithChildren) => {
-    const { showLoading, hideLoading, showToast, dismissToast } = useNotificationContext();
-    const { handleChangeLanguage, translate } = useLanguageContext();
-
     const [user, setUser] = useState<IUser | undefined>(undefined);
 
 
-    useEffect(() => {
-        handleLoginWithStoredAuthToken();
-        // eslint-disable-next-line
-    }, []);
-
-
     const handleLogin = useCallback((formData: FormData) => {
-        // AuthService.Login(formData)
-        //     .then(resp => {
-        //         setUser(resp.data.user as IUser);
-        //     })
-        //     .catch(() => {
-        //         showToast("warning", translate('_userContextHandleLoginError'));
-        //     });
+        AuthService.SignIn(formData)
+            .then(resp => {
+                setUser(resp.data as IUser);
+            })
+            .catch((err) => { });
 
         // eslint-disable-next-line
     }, []);

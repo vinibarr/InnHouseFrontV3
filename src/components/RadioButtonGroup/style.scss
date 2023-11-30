@@ -1,0 +1,46 @@
+
+@import '../../styles/variables';
+
+
+.radiobuttongroup-default {
+    .radiobuttongroup-title {
+        text-align: center;
+        font-size: 12px;
+        color: $component-text-default-color-1;
+        margin-bottom: 4px;
+    }
+
+    .radiobuttongroup-item {
+        flex: 1;
+        text-align: center;
+        min-height: 40px;
+        background-color: $screen-background-color;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-left: 1px solid rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        color: $component-text-default-color-1;
+        transition: 0.2s;
+
+        &:hover, &.active {
+            color: #fff;
+            background-color: $color-primary;
+        }
+
+        &:first-child, &.first-child {
+            border-top-left-radius: $component-default-border-radius;
+            border-bottom-left-radius: $component-default-border-radius;
+            border: none;
+        }
+
+        &:last-child {
+            border-top-right-radius: $component-default-border-radius;
+            border-bottom-right-radius: $component-default-border-radius;
+        }
+
+        .radiobuttongroup-item-title {
+            font-size: 13px;
+        }
+    }
+}

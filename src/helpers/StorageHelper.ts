@@ -28,8 +28,8 @@ const languageStorage = {
     _storageName: StorageConstants.languageStorageName,
     _defaultValue: Languages[0],
 
-    validate: function (languageValue: string | null | undefined) {
-        return Languages.find(lang => lang.value === languageValue) ?? this._defaultValue;
+    validate: function (languageKey: string | null | undefined) {
+        return Languages.find(lang => lang.key === languageKey) ?? this._defaultValue;
     },
 
     get: function () {
@@ -38,9 +38,9 @@ const languageStorage = {
     },
 
     set: function (language: ILanguage) {
-        language = this.validate(language.value);
+        language = this.validate(language.key);
         
-        const languageValueEncrypted = CryptoHelper.privateCrypto.encrypt(language.value);
+        const languageValueEncrypted = CryptoHelper.privateCrypto.encrypt(language.key);
         localStorage.setItem(this._storageName, languageValueEncrypted);
     }
 }

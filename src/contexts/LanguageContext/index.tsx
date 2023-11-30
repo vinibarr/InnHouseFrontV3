@@ -27,9 +27,9 @@ const LanguageContextProvider = (props: React.PropsWithChildren) => {
     }, []);
 
 
-    const handleTranslation = useCallback((text: string, languageValue?: string) => {
-        languageValue = languageStorage.validate(languageValue ?? language.value).value;
-        return LanguageHelper.FindTranslation(text)[languageValue];
+    const handleTranslation = useCallback((text: string, key?: string) => {
+        key = languageStorage.validate(key ?? language.key).key;
+        return LanguageHelper.FindTranslation(text)[key];
 
         // eslint-disable-next-line
     }, [language]);
