@@ -1,0 +1,282 @@
+
+@import './variables';
+@import './fonts';
+
+
+* {
+    font-family: 'Inter', sans-serif !important;
+}
+
+html, body, #root {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    background: $screen-background-color !important;
+}
+
+
+img {
+    -webkit-user-drag: none !important;
+    -khtml-user-drag: none !important;
+    -moz-user-drag: none !important;
+    -o-user-drag: none !important;
+}
+
+
+
+
+// General
+.overflow-hidden { overflow: hidden !important; }
+
+.display-none, .hidden { display: none !important; }
+.display-flex { display: flex !important; }
+.display-inlineflex { display: inline-flex !important; }
+
+.justifycontent-center { justify-content: center !important; }
+.justifycontent-flexstart { justify-content: flex-start !important; }
+.justifycontent-flexend { justify-content: flex-end !important; }
+.justifycontent-spacebetween { justify-content: space-between !important; }
+
+.alignitems-center { align-items: center !important; }
+.alignitems-flexstart { align-items: flex-start !important; }
+.aligncontent-flexstart { align-content: flex-start !important; }
+
+.gap-8 { gap: 8px !important; }
+.gap-10 { gap: 10px !important; }
+.gap-12 { gap: 12px !important; }
+.gap-14 { gap: 14px !important; }
+.gap-16 { gap: 16px !important; }
+.gap-18 { gap: 18px !important; }
+.gap-20 { gap: 20px !important; }
+
+.cursor-pointer { cursor: pointer !important; }
+
+.texttransform-uppercase { text-transform: uppercase !important; }
+
+.textalign-center { text-align: center !important; }
+.textalign-right { text-align: right !important; }
+
+.textoverflow-ellipsis { text-overflow: ellipsis !important; }
+
+.whitespace-nowrap { white-space: nowrap !important; }
+
+.fontsize-8 { font-size: 8px !important; }
+.fontsize-9 { font-size: 9px !important; }
+.fontsize-10 { font-size: 10px !important; }
+.fontsize-11 { font-size: 11px !important; }
+.fontsize-12 { font-size: 12px !important; }
+.fontsize-14 { font-size: 14px !important; }
+.fontsize-16 { font-size: 16px !important; }
+.fontsize-18 { font-size: 18px !important; }
+.fontsize-20 { font-size: 20px !important; }
+.fontsize-22 { font-size: 22px !important; }
+.fontsize-24 { font-size: 24px !important; }
+.fontsize-26 { font-size: 26px !important; }
+.fontsize-28 { font-size: 28px !important; }
+.fontsize-30 { font-size: 30px !important; }
+.fontsize-32 { font-size: 32px !important; }
+.fontsize-34 { font-size: 34px !important; }
+.fontsize-36 { font-size: 36px !important; }
+.fontsize-38 { font-size: 38px !important; }
+.fontsize-40 { font-size: 40px !important; }
+.fontsize-60 { font-size: 60px !important; }
+.fontsize-80 { font-size: 80px !important; }
+.fontsize-100 { font-size: 100px !important; }
+.fontsize-120 { font-size: 120px !important; }
+
+.fontweight-normal { font-weight: normal !important; }
+.fontweight-600 { font-weight: 600 !important; }
+.fontweight-bold { font-weight: bold !important; }
+
+
+.width-100pc { width: 100% !important; }
+
+
+.text-color-1 { color: $component-text-default-color-1 !important; }
+.text-color-2 { color: $component-text-default-color-2 !important; }
+
+
+.color-white { color: #fff !important; }
+.color-primary { color: $component-default-background-color-primary !important }
+.color-secondary { color: $component-default-background-color-secondary !important }
+.color-green { color: $component-default-background-color-green !important }
+.color-blue { color: $component-default-background-color-blue !important }
+.color-red { color: $component-default-background-color-red !important }
+.color-amber { color: $component-default-background-color-amber !important }
+.color-cyan { color: $component-default-background-color-cyan !important }
+.color-brown { color: $component-default-background-color-brown !important }
+.color-pink { color: $component-default-background-color-pink !important }
+.color-grey { color: $component-default-background-color-grey !important }
+
+
+.backgroundcolor-primary { background-color: $component-default-background-color-primary !important }
+.backgroundcolor-secondary { background-color: $component-default-background-color-secondary !important }
+.backgroundcolor-green { background-color: $component-default-background-color-green !important }
+.backgroundcolor-blue { background-color: $component-default-background-color-blue !important }
+.backgroundcolor-red { background-color: $component-default-background-color-red !important }
+.backgroundcolor-amber { background-color: $component-default-background-color-amber !important }
+.backgroundcolor-cyan { background-color: $component-default-background-color-cyan !important }
+.backgroundcolor-brown { background-color: $component-default-background-color-brown !important }
+.backgroundcolor-grey { background-color: $component-default-background-color-grey !important }
+
+
+
+// Border
+.border-none { border: none !important; }
+
+
+
+// Margin
+.marginX-none { 
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+
+.marginRight-8px { margin-right: 8px !important; }
+
+
+
+// Padding
+.paddingTop-none { padding-top: 0px !important; }
+.paddingBottom-none { padding-bottom: 0px !important; }
+.paddingRight-none { padding-right: 0px !important; }
+.paddingLeft-none { padding-left: 0px !important; }
+
+.paddingY-none { 
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+.paddingX-none { 
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.paddingY-8 { 
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+}
+
+.paddingX-12 { 
+    padding-right: 12px !important;
+    padding-left: 12px !important;
+}
+
+
+// Animations
+@keyframes scale_in {
+    0% { transform: scale(0); }
+    70% { transform: scale(1); }
+}
+
+@keyframes slide_to_up {
+    0% { bottom: -100%; }
+    70% { bottom: 0px; }
+}
+
+
+
+
+
+// Toastify
+.Toastify__toast-container {
+    --toastify-toast-width: 400px;
+    
+    .Toastify__toast {
+        .Toastify__toast-body {
+            padding: 8px !important;
+            font-size: 15px !important;
+            color: $component-text-default-color-3 !important;
+        
+            .Toastify__toast-icon {
+                width: 24px !important;
+                margin-right: 24px !important;
+            }
+        }
+    }
+}
+
+
+
+// MUI Components
+
+// Backdrop
+.MuiBackdrop-root {
+    z-index: 9999;
+    background-color: $component-backdrop-default-background-color !important;
+}
+
+
+// Dialog
+.MuiDialog-container {
+    .MuiPaper-root {
+        border-radius: $component-dialog-default-border-radius !important;
+    }
+
+
+    @media screen and (max-width: $screen-size-md) {
+        align-items: flex-end !important;
+        
+        .MuiPaper-root {
+            width: 100%;
+            min-width: 100%;
+            margin-left: 0;
+            margin-right: 0;
+            margin-bottom: 0;
+            border-end-end-radius: 0px !important;
+            border-end-start-radius: 0px !important;
+            animation: slide_to_up 0.6s !important;
+        }
+    }
+}
+
+
+// Avatar
+.MuiAvatar-root {
+    border-radius: $component-default-border-radius !important;
+}
+
+
+// Paper
+.MuiPaper-root {
+    border-radius: $component-default-border-radius !important;
+    background: $component-paper-default-background-color !important;
+    box-shadow: $component-default-box-shadow !important;
+}
+
+.backgroundcolor-paper { background-color: $component-paper-default-background-color !important; }
+
+
+//Divider
+.MuiDivider-root {
+    border-color: $component-divider-default-border-color !important;
+}
+
+
+// Tooltip
+.MuiTooltip-tooltip {
+    padding: 12px !important;
+    background-color: $component-tooltip-default-background-color !important;
+    border-radius: $component-default-border-radius !important;
+    color: $component-tooltip-default-color !important;
+
+    .MuiTooltip-arrow {
+        color: $component-tooltip-default-background-color !important;
+    }
+}
+
+
+// Drawer
+.MuiDrawer-paper {
+    width: $component-drawer-default-width !important;
+
+
+    @media only screen and (max-width: $screen-size-md) {
+        width: 60% !important;
+    }
+    
+    @media only screen and (max-width: $screen-size-sm) {
+        width: 80% !important;
+    }
+}

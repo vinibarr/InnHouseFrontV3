@@ -1,0 +1,47 @@
+
+@import '../../styles/variables';
+
+
+.drawer-default {
+    width: $component-drawer-default-width !important;
+
+    .drawerform-default {
+        height: 100%;
+        width: 100%;
+        display: grid !important;
+        grid-template-columns: 1fr;
+        grid-template-rows: 60px 1fr 60px;
+        grid-template-areas: 'drawer-header' 'drawer-content' 'drawer-footer';
+
+        &.without-footer {
+            grid-template-rows: 60px 1fr;
+            grid-template-areas: 'drawer-header' 'drawer-content';
+        }
+
+        .box-header {
+            grid-area: drawer-header;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0px 16px;
+    
+            .text-title {
+                font-size: 18px !important;
+            }
+        }
+    
+        .box-content {
+            grid-area: drawer-content;
+            overflow: auto;
+            padding: 16px;
+        }
+    
+        .box-footer {
+            grid-area: drawer-footer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0px 16px;
+        }
+    }
+}

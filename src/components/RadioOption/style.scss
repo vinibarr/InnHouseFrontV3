@@ -1,0 +1,42 @@
+
+@import '../../styles/variables';
+
+
+.radiooption-default {
+    border-radius: $component-button-default-border-radius !important;
+    box-shadow: $component-default-box-shadow !important;
+    background-color: $component-radiooption-default-background-color;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px;
+    cursor: pointer;
+    transition: 0.2s;
+
+
+    .radiooption-icon,
+    .radiooption-title {
+        color: $component-radiooption-default-color !important;
+    }
+
+    .radiooption-title {
+        font-size: 16px;
+        line-height: 18px;
+    }
+
+
+    &.selected {
+        background-color: $component-radiooption-selected-default-background-color;
+
+        .radiooption-icon, 
+        .radiooption-title {
+            color: $component-radiooption-selected-default-color !important;
+        }
+    }
+
+    &.disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+    }
+}

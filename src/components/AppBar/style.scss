@@ -1,0 +1,215 @@
+
+@import '../../styles/variables';
+
+.appbar-admin {
+    width: $admin-appbar-width !important;
+    height: 100%;
+    grid-area: appbar;
+    display: grid !important;
+    grid-template-columns: 1fr;
+    grid-template-rows: 80px 60px 1fr 120px;
+    grid-template-areas: 'icon' 'menu' 'navigation' 'footer';
+    background: $admin-appbar-background-color !important;
+    z-index: 997;
+    box-shadow: $component-default-box-shadow !important;
+    border-radius: 0px !important;
+    transition: 0.4s;
+    animation: scale_in 0.4s;
+    overflow: hidden;
+    transition: width 0s;
+
+
+    .grid-icon,
+    .grid-menu,
+    .grid-navigation,
+    .grid-footer {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .grid-icon {
+        grid-area: icon;
+        justify-content: space-evenly;
+
+        .icon {
+            width: 100%;
+            padding: 16px;
+            cursor: pointer;
+            animation: scale_in 0.8s;
+            box-sizing: border-box;
+
+            &.full {
+                display: none;
+            }
+        }
+    }
+
+    .grid-menu {
+        grid-area: menu;
+        justify-content: center;
+    }
+
+    .grid-navigation {
+        grid-area: navigation;
+        overflow: auto;
+        overflow-x: hidden;
+    }
+    
+    .grid-footer {
+        grid-area: footer;
+        padding: 0px;
+        justify-content: space-evenly;
+
+        .iconbutton-logout:hover {
+            color: $admin-appbar-logout-color !important;
+        }
+
+        .avatar-user {
+            font-size: 18px;
+            border-radius: $component-default-border-radius !important;
+            background: $admin-appbar-avatar-background-color !important;
+            color: $admin-appbar-avatar-color !important;
+            cursor: pointer;
+            animation: scale_in 0.8s;
+        }
+    }
+}
+
+
+@media screen and (max-width: $screen-size-md) {
+    .appbar-admin {
+        height: $admin-appbar-height !important;
+        width: 100% !important;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: "menu icon footer";
+
+        .grid-icon,
+        .grid-menu,
+        .grid-navigation,
+        .grid-footer {
+            flex-direction: row;
+            height: $admin-appbar-height !important;
+            justify-content: center;
+        }
+
+        .grid-icon {
+            .icon {
+                height: 100%;
+                width: auto;
+                display: none;
+
+                &.full {
+                    display: block;
+                }
+            }
+        }
+
+        .grid-menu {
+            padding: 0px 12px;
+            justify-content: flex-start;
+        }
+        
+        .grid-footer {
+            padding: 0px 12px;
+            justify-content: flex-end;
+
+            .iconbutton-action {
+                display: none;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+// Navigation Link
+.navigationlink-container {
+    width: 100%;
+    padding: 12px 8px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: $component-text-default-color-2 !important;
+    transition: 0.2s;
+    cursor: pointer;
+    animation: scale_in 0.4s;
+    position: relative;
+
+    .navigationlink-icon {
+        font-size: 16px;
+    }
+
+    .navigationlink-name {
+        display: block;
+        width: 100%;
+        text-align: center;
+        font-size: 10px;
+        margin-top: 2px;
+        line-height: 12px;
+        font-weight: 600;
+        white-space: normal;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+
+    &::before {
+        content: '';
+        position: absolute;
+        width: 6px;
+        height: 0%;
+        right: -3px;
+        top: 50%;
+        border-radius: $component-default-border-radius;
+        background-color: $admin-appbar-navigation-link-hover-color !important;
+        transition: 0.2s;
+    }
+
+
+    &:hover, &.selected {
+        background-color: $admin-appbar-navigation-link-hover-background-color !important;
+        color: $admin-appbar-navigation-link-hover-color !important;
+    }
+
+    &.selected {
+        &::before {
+            height: 80%;
+            top: 10%;
+        }
+    }
+}
+
+
+@media screen and (max-width: $screen-size-md) {
+    .navigationlink-container {
+        width: 20%;
+        height: 100%;
+        padding: 8px !important;
+
+        .navigationlink-name {
+            white-space: nowrap;
+        }
+    
+        &::before {
+            width: 0%;
+            height: 6px !important;
+            left: 50%;
+            top: -3px !important;
+        }
+
+        &.selected {
+            &::before {
+                width: 80%;
+                left: 10%;
+            }
+        }
+    }
+}

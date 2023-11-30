@@ -1,0 +1,42 @@
+
+@import '../../styles/variables';
+
+
+.search-default {
+    position: fixed;
+    box-sizing: border-box;
+    top: 20px;
+    right: -360px;
+    padding: 4px;
+    z-index: 99;
+    width: 320px;
+    background: #fff !important;
+    border-radius: $component-default-border-radius !important;
+    box-shadow: $component-default-box-shadow !important;
+    transition: 0.4s;
+
+    .MuiOutlinedInput-root {
+        .MuiOutlinedInput-notchedOutline {
+            border: none !important;
+        }
+    }
+
+    .MuiIconButton-root {
+        margin: 0px !important;
+    }
+
+    &.actived {
+        right: 40px;
+    }
+
+
+    @media screen and (max-width: $screen-size-md) {
+        right: -100%;
+        width: calc(100% - 16px);
+        top: calc(#{$admin-appbar-height} + 20px);
+
+        &.actived {
+            right: 8px;
+        }
+    }
+}

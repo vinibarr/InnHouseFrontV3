@@ -1,0 +1,96 @@
+
+@import '../../styles/variables';
+
+.dialog-default {
+    .dialogtitle-default {
+        .dialogtitle-text {
+            font-size: 20px;
+            line-height: 20px;
+            padding: 12px 0px;
+        }
+    }
+
+    .dialogactions-default {
+        padding: 16px 24px;
+    }
+
+    &.dialogactions-spacebetween {
+        .dialogactions-default {
+            justify-content: space-between;
+        }
+    }
+
+    &.dialogactions-flexend {
+        .dialogactions-default {
+            justify-content: flex-end;
+        }
+    }
+
+
+    &.full-height {
+        height: calc(100% - 64px) !important;
+
+        .dialogform-default {
+            height: 100%;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 72px 1fr 72px;
+            grid-template-areas: 'dialog-title' 'dialog-content' 'dialog-actions';
+
+            &.dialogform-withoutactions {
+                grid-template-rows: 72px 1fr;
+                grid-template-areas: 'dialog-title' 'dialog-content';
+            }
+
+            .dialogtitle-default {
+                grid-area: dialog-title;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+        
+            .dialogcontent-default {
+                grid-area: dialog-content;
+                padding-left: 24px;
+                padding-right: 24px;
+                overflow: auto;
+            }
+        
+            .dialogactions-default {
+                grid-area: dialog-actions;
+                padding-top: 0px;
+                padding-bottom: 0px;
+            }
+        }
+    }
+
+
+    .dialog-sectiontitle {
+        color: #fff;
+        background-color: $component-dialog-sectiontitle-default-background-color;
+        padding: 8px 20px;
+        border-radius: $component-default-border-radius;
+        box-shadow: $component-default-box-shadow;
+        font-size: 14px;
+        cursor: default;
+    }
+
+
+    &.overflow-inherit {
+        overflow: inherit;
+        
+        .dialogcontent-default {
+            overflow: inherit;
+        }
+    }
+}
+
+
+
+@media screen and (max-width: $screen-size-md) {
+    .dialog-default {
+        .dialog-sectiontitle {
+            display: block;
+        }
+    }
+}

@@ -1,0 +1,112 @@
+
+@import '../../styles/variables';
+
+
+.container-login {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    .grid-login {
+        background-color: $component-paper-default-background-color;
+        height: 85%;
+        position: relative;
+        border-radius: $component-default-border-radius;
+        box-shadow: $component-default-box-shadow;
+        padding: 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding: 40px 60px;
+        animation: scale_in 0.4s;
+        overflow: auto;
+
+        .grid-languages {
+            width: 100%;
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            justify-content: flex-start;
+
+            .avatar-language {
+                width: 20px !important;
+                height: 20px !important;
+                margin-left: 8px;
+                cursor: pointer;
+                transition: 0.2s;
+                filter: grayscale(100%);
+
+                &:hover {
+                    transform: scale(1.2);
+                }
+
+                &.active {
+                    filter: unset;
+                }
+            }
+        }
+
+        .grid-logo {
+            margin-top: 20px;
+            flex: 0;
+            text-align: center;
+
+            img.image-icon {
+                width: auto;
+                max-width: 100%;
+                max-height: 100px;
+            }
+        }
+
+        .grid-fields {
+            flex: 0;
+            width: 100%;
+            padding: 32px 0px;
+
+            .text-description {
+                color: $component-text-default-color-3 !important;
+            }
+
+            .text-recover-password {
+                cursor: pointer;
+                font-size: 12px;
+                transition: 0.2s;
+                color: $component-text-default-color-2;
+                padding: 0px 4px;
+
+                &:hover {
+                    transition: 0.2s;
+                    color: $component-text-default-color-1 !important;
+                }
+            }
+        }
+
+        .grid-buttons {
+            flex: 0;
+            width: 100%;
+        }
+    }
+}
+
+
+
+@media screen and (max-width: $screen-size-sm) {
+    .container-login {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        align-items: flex-end;
+    
+        .grid-login {
+            height: 90%;
+            padding: 32px 32px 20px 32px;
+            border-end-end-radius: 0px;
+            border-end-start-radius: 0px;
+            animation: slide_to_up 0.6s;
+        }
+    }
+}
