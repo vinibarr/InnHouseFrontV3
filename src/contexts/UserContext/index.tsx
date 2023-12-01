@@ -1,7 +1,10 @@
 
-import { createContext, useContext, useState, useCallback, useMemo } from "react";
+import { createContext, useContext, useState, useCallback, useMemo, useEffect } from "react";
 import IUser from "../../interfaces/IUser";
 import AuthService from "../../services/AuthService";
+import FormHelper from "../../helpers/FormHelper";
+import { authTokenStorage } from "../../helpers/StorageHelper";
+import { useNotificationContext } from "../NotificationContext";
 
 
 interface IUserContext {
@@ -15,7 +18,15 @@ interface IUserContext {
 const UserContext = createContext<IUserContext | undefined>(undefined);
 
 const UserContextProvider = (props: React.PropsWithChildren) => {
+    const { dismissToast } = useNotificationContext();
+
     const [user, setUser] = useState<IUser | undefined>(undefined);
+
+
+    useEffect(() => {
+        handleLoginWithStoredAuthToken();
+        // eslint-disable-next-line
+    }, []);
 
 
     const handleLogin = useCallback((formData: FormData) => {
@@ -30,47 +41,37 @@ const UserContextProvider = (props: React.PropsWithChildren) => {
 
 
     const handleLogout = useCallback((closeAllToasts: boolean) => {
-        // const formData = FormHelper.GenerateFormData(undefined);
-        // AuthService.Logout(formData)
-        //     .then(() => {
-        //         authTokenStorage.remove();
-        //         setUser(undefined);
+        const formData = FormHelper.GenerateFormData(undefined);
+        AuthService.Logoff(formData)
+            .then(() => {
+                authTokenStorage.remove();
+                setUser(undefined);
                 
-        //         if (closeAllToasts) {
-        //             dismissToast();
-        //         }
-        //     })
-        //     .catch(err => {
-        //         if (err.response.status === HttpStatusEnum.NotFound) {
-        //             showToast("warning", translate('_userContextHandleLogoutError'));
-        //         }
-        //     });
+                if (closeAllToasts) {
+                    dismissToast();
+                }
+            })
+            .catch(err => { });
         
         // eslint-disable-next-line
     }, []);
 
 
     const handleLoginWithStoredAuthToken = useCallback(() => {
-        // const authTokenStored = authTokenStorage.get();
+        const authTokenStored = authTokenStorage.get();
         
-        // if (authTokenStored) {
-        //     showLoading();
-
-        //     const formData = FormHelper.GenerateFormData(undefined);
-        //     AuthService.LoginWithStoredAuthToken(formData)
-        //         .then(resp => {
-        //             setUser(resp.data.user as IUser);
-        //         })
-        //         .catch(() => {
-        //             handleLogout(true);
-        //         })
-        //         .finally(() => {
-        //             hideLoading();
-        //         });
-        // } else {
-        //     handleLogout(true);
-        //     hideLoading();
-        // }
+        if (authTokenStored) {
+            const formData = FormHelper.GenerateFormData(undefined);
+            AuthService.TokenSignIn(formData)
+                .then(resp => {
+                    setUser(resp.data as IUser);
+                })
+                .catch(() => {
+                    handleLogout(true);
+                });
+        } else {
+            setUser(undefined);
+        }
 
         // eslint-disable-next-line
     }, []);

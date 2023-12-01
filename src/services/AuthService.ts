@@ -6,6 +6,14 @@ const SignIn = async (formData: FormData) => {
     return AxiosHelper.post('/login', formData);
 }
 
+const TokenSignIn = async (formData: FormData) => {
+    return AxiosHelper.post('/token-login', formData);
+}
+
+const Logoff = async (formData: FormData) => {
+    return AxiosHelper.post('/logoff', formData);
+}
+
 const SignUp = async (formData: FormData) => {
     return AxiosHelper.post('/sign-up', formData);
 }
@@ -25,6 +33,8 @@ const ResetPassword = async (formData: FormData) => {
 
 const AuthService = {
     SignIn,
+    TokenSignIn,
+    Logoff,
     SignUp,
     SignUpEmailConfirmation,
     ForgotPassword,

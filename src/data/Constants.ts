@@ -17,7 +17,10 @@ const DefaultConstants = {
         logoHorizontal: 'assets/images/logoHorizontal.png',
         icon: 'assets/images/icon.png',
         favIcon: 'assets/images/favIcon.png'
-    }
+    },
+
+    gridRowSpacing: 2,
+    gridColumnSpacing: 2,
 };
 
 const systemNameFormatted = DefaultConstants.system.name.toLowerCase().replace(/ /g, '').toLowerCase();

@@ -59,6 +59,12 @@ const DefaultTranslation = {
         es_es: "Corredor"
     },
 
+    cancel: {
+        pt_br: "Cancelar",
+        en_us: "Cancel",
+        es_es: "Cancelar"
+    },
+
     copyright: {
         pt_br: "© Copyright 2023. Todos os direitos reservados",
         en_us: "© Copyright 2023. All rights reserved",

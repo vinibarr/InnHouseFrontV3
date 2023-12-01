@@ -8,6 +8,7 @@ import LogoutDialog from './LogoutDialog';
 import { useLanguageContext } from '../../contexts/LanguageContext';
 import { useUserContext } from '../../contexts/UserContext';
 import DefaultConstants from '../../data/Constants';
+import ProfileMenu from '../ProfileMenu';
 
 
 const AppBar = () => {
@@ -16,6 +17,7 @@ const AppBar = () => {
 
     const [openNavigation, setOpenNavigation] = useState<boolean>(false);
     const [openLogoutDialog, setOpenLogoutDialog] = useState<boolean>(false);
+    const [openProfileMenu, setOpenProfileMenu] = useState<boolean>(false);
 
     return (
         <>
@@ -41,7 +43,7 @@ const AppBar = () => {
                 </Grid>
 
                 <Grid item className='grid-navigation'>
-                    {/* {createShortcuts()} */}
+
                 </Grid>
 
                 <Grid item className='grid-footer'>
@@ -53,6 +55,7 @@ const AppBar = () => {
                         alt={user?.name.toUpperCase()} 
                         src={user?.name}
                         className='avatar-user'
+                        onClick={() => setOpenProfileMenu(true)}
                     />
                 </Grid>
             </Box>
@@ -61,6 +64,12 @@ const AppBar = () => {
                 title={translate('logout')}
                 open={openLogoutDialog} 
                 handleClose={() => setOpenLogoutDialog(false)}
+            />
+
+            <ProfileMenu 
+                open={openProfileMenu}
+                handleClose={() => setOpenProfileMenu(false)}
+                handleOpenLogoutDialog={() => setOpenLogoutDialog(true)}
             />
         </>
     );

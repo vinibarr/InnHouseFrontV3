@@ -7,7 +7,7 @@ const GenerateFormData = (event: React.FormEvent<HTMLFormElement> | undefined) =
 
     const storedAuthToken = authTokenStorage.get();
     if (storedAuthToken) {
-        formData = IncludeKeyValueOnFormData(formData, 'authToken', storedAuthToken);
+        formData = IncludeKeyValueOnFormData(formData, 'token', storedAuthToken);
     }
 
     const storedLanguage = languageStorage.get();
