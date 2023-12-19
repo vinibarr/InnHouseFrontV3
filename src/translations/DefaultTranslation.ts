@@ -53,6 +53,12 @@ const DefaultTranslation = {
 
 
     // Defaults
+    add: {
+        pt_br: "Adicionar",
+        en_us: "Add",
+        es_es: "Agregar"
+    },
+    
     broker: {
         pt_br: "Corretor",
         en_us: "Broker",
@@ -99,6 +105,18 @@ const DefaultTranslation = {
         pt_br: "Sair",
         en_us: "Logout",
         es_es: "Salir"
+    },
+
+    myProfile: {
+        pt_br: "Meu Perfil",
+        en_us: "My Profile",
+        es_es: "Mi Perfil"
+    },
+
+    myProperties: {
+        pt_br: "Minhas Propriedades",
+        en_us: "My Properties",
+        es_es: "Mis Propiedades"
     },
 
     name: {

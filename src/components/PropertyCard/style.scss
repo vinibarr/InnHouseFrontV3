@@ -1,0 +1,68 @@
+
+@import '../../styles/variables';
+
+
+.propertycard-default {
+    height: 400px;
+    width: 100%;
+    box-shadow: $component-default-box-shadow;
+    border-radius: $component-button-default-border-radius !important;
+    background-color: $component-paper-default-background-color;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    animation: scale_in 0.4s;
+    cursor: pointer;
+    transition: 0.2s;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: $component-default-border-radius;
+    }
+
+
+    .propertycard-title {
+        z-index: 1;
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        width: calc(100% - 40px);
+        height: 40px;
+        background-color: $color-primary;
+        box-shadow: $component-default-box-shadow;
+        border-radius: $component-default-border-radius;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0px 20px;
+        box-sizing: border-box;
+        color: #fff;
+        text-shadow: $component-default-text-shadow;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+}
+
+
+
+@media screen and (max-width: $screen-size-md) {
+    .propertycard-default {
+        height: 360px;
+        
+        &:hover {
+            transform: scale(1.01);
+        }
+    }
+}

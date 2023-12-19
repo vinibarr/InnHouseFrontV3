@@ -18,7 +18,7 @@ const ForgotPassword = () => {
 
     const handleSubmit = useCallback((event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        const formData = FormHelper.GenerateFormData(event);
+        const formData = FormHelper.Create(event);
         
         AuthService.ForgotPassword(formData).then(resp => {
             history.push('/');

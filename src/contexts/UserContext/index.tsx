@@ -41,7 +41,7 @@ const UserContextProvider = (props: React.PropsWithChildren) => {
 
 
     const handleLogout = useCallback((closeAllToasts: boolean) => {
-        const formData = FormHelper.GenerateFormData(undefined);
+        const formData = FormHelper.Create(undefined);
         AuthService.Logoff(formData)
             .then(() => {
                 authTokenStorage.remove();
@@ -61,7 +61,7 @@ const UserContextProvider = (props: React.PropsWithChildren) => {
         const authTokenStored = authTokenStorage.get();
         
         if (authTokenStored) {
-            const formData = FormHelper.GenerateFormData(undefined);
+            const formData = FormHelper.Create(undefined);
             AuthService.TokenSignIn(formData)
                 .then(resp => {
                     setUser(resp.data as IUser);

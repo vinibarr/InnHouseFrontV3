@@ -1,0 +1,182 @@
+
+@import '../../styles/variables';
+
+
+.content-admin {
+    grid-area: content;
+    transition: 0.4s;
+    display: grid !important;
+    grid-template-columns: 1fr;
+    grid-template-rows: $admin-content-header-height 1fr;
+    grid-template-areas: 'header' 'content';
+    background: $admin-content-background-color !important;
+    position: relative;
+    width: 100%;
+
+    .grid-header {
+        grid-area: header;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px 32px;
+        position: relative;
+        box-shadow: $component-default-box-shadow;
+        z-index: 99;
+
+        .grid-title {
+            min-width: 60%;
+            flex: 1;
+            z-index: 99;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+
+            .text-title, .text-description{
+                text-transform: uppercase;
+                font-weight: 600;
+                animation: scale_in 0.4s;
+            }
+
+            .text-title {
+                color: $admin-content-header-title-color !important;
+                font-size: 18px !important;
+                line-height: 20px !important;
+            }
+
+            .text-description {
+                color: $admin-content-header-description-color !important;
+                margin: 4px 0px 0px 1px;
+                font-size: 12px !important;
+                line-height: 14px !important;
+            }
+        }
+
+        .grid-tools {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            flex-flow: wrap;
+            z-index: 99;
+            padding-left: 4px;
+
+            .MuiIconButton-root {
+                color: $admin-content-header-iconbutton-color !important;
+                margin-left: 4px;
+                animation: scale_in 0.4s;
+            }
+        }
+    }
+
+    .grid-content {
+        position: absolute;
+        grid-area: content;
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 32px 20px 32px;
+        z-index: 98;
+        height: 100%;
+
+        &.overflow-enabled {
+            height: 100%;
+            margin-top: 0px;
+            overflow: auto;
+            padding-top: 12px;
+            padding-bottom: 32px;
+        }
+
+        &.with-footer {
+            padding: 0px !important;
+            display: grid !important;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 80px;
+            grid-template-areas: 'content' 'footer';
+
+            .section-content {
+                padding: 20px 32px 20px 32px;
+                grid-area: content;
+                overflow: auto !important;
+            }
+
+            .section-footer {
+                padding: 0px 32px;
+                grid-area: footer;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                box-shadow: $component-default-box-shadow;
+            }
+        }
+
+        .paper-content {
+            border-radius: $component-default-border-radius !important;
+            background: $component-paper-default-background-color !important;
+            box-shadow: $component-default-box-shadow !important;
+            animation: scale_in 0.4s;
+
+            &.overflow-enabled {
+                height: 100%;
+                overflow: auto;
+            }
+
+            &.background-transparent {
+                background: transparent !important;
+            }
+
+            &.boxshadow-none {
+                box-shadow: none !important;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: $screen-size-md) {
+    .content-admin {
+        padding: 0px !important;
+
+        .grid-header {
+            padding: 0px 12px;
+
+            .grid-title {
+                .text-title {
+                    font-size: 14px !important;
+                    line-height: 16px !important;
+                }
+
+                .text-description {
+                    font-size: 10px !important;
+                    line-height: 12px !important;
+                }
+            }
+
+            .grid-tools {
+                .MuiIconButton-root {
+                    .MuiSvgIcon-root {
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+
+        .grid-content {
+            padding: 12px 12px;
+
+            &.overflow-enabled {
+                padding: 0px 12px 20px 12px;
+            }
+
+            .paper-content {
+                &.overflow-enabled {
+                    overflow: auto;
+                }
+            }
+
+            .grid-content-section-title {
+                &::after {
+                    width: 60%;
+                }
+            }
+        }
+    }
+}

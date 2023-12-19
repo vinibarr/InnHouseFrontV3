@@ -29,8 +29,8 @@ const SignUpEmailConfirmation = () => {
     useEffect(() => {
         const queryParams = new URLSearchParams(search);
 
-        let formData = FormHelper.GenerateFormData(undefined);
-        formData = FormHelper.IncludeKeyValueOnFormData(formData, 'hash', queryParams.get('hash') ?? 'invalid');
+        let formData = FormHelper.Create(undefined);
+        formData = FormHelper.Add(formData, 'hash', queryParams.get('hash') ?? 'invalid');
 
         AuthService.SignUpEmailConfirmation(formData)
             .then(resp => {

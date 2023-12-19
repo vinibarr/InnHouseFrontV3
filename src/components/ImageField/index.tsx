@@ -8,6 +8,7 @@ import { ArrowBack, Delete, Edit, ImageOutlined } from '@mui/icons-material';
 interface IImageFieldProps {
     title?: string;
     name: string;
+    validatorName?: string;
     alt?: string;
     defaultImage?: string;
     height: number;
@@ -20,6 +21,7 @@ interface IImageFieldProps {
 const ImageField: React.FC<IImageFieldProps> = ({
     title = undefined,
     name,
+    validatorName = undefined,
     alt = undefined,
     defaultImage = undefined,
     height,
@@ -100,12 +102,14 @@ const ImageField: React.FC<IImageFieldProps> = ({
                     }
                 </Box>
 
-                <input
-                    type='text'
-                    name={`${name}Validator`}
-                    value={validator.toString()}
-                    className='display-none'
-                />
+                {
+                    validatorName && <input
+                        type='text'
+                        name={validatorName}
+                        value={validator.toString()}
+                        className='display-none'
+                    />
+                }
 
                 <input
                     ref={imageInputRef}

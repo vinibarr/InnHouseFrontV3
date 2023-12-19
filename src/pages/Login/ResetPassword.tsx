@@ -23,8 +23,8 @@ const ResetPassword = () => {
 
         const queryParams = new URLSearchParams(search);
 
-        let formData = FormHelper.GenerateFormData(event);
-        formData = FormHelper.IncludeKeyValueOnFormData(formData, 'hash', queryParams.get('recovery') ?? 'invalid');
+        let formData = FormHelper.Create(event);
+        formData = FormHelper.Add(formData, 'hash', queryParams.get('recovery') ?? 'invalid');
         
         AuthService.ResetPassword(formData).then(resp => {
             history.push('/');

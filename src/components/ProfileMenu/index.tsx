@@ -1,10 +1,12 @@
 
 import './style.scss';
-import { Logout } from "@mui/icons-material";
+import { AccountCircle, Logout } from "@mui/icons-material";
 import { Avatar, Box, Dialog, Divider, ListItemIcon, MenuItem, Typography } from "@mui/material";
 import { useLanguageContext } from '../../contexts/LanguageContext';
 import { useUserContext } from '../../contexts/UserContext';
 import { AccessProfileData, AccessProfileEnum } from '../../data/Enums';
+import MyProfileDialog from './MyProfileDialog';
+import { useState } from 'react';
 
 
 interface IProfileMenuProps {
@@ -22,6 +24,8 @@ const ProfileMenu: React.FC<IProfileMenuProps> = ({
     const { translate } = useLanguageContext();
     const { user } = useUserContext();
 
+    const [openMyProfileDialog, setOpenMyProfileDialog] = useState<boolean>(false);
+
     return (
         <>
             <Dialog
@@ -34,7 +38,7 @@ const ProfileMenu: React.FC<IProfileMenuProps> = ({
                 <Box component='div' className='box-userprofile'>
                     <Avatar 
                         alt={user?.name.toUpperCase()} 
-                        src={user?.name} 
+                        src={user?.avatar} 
                         className='avatar-userimage'
                     />
                     
@@ -48,6 +52,16 @@ const ProfileMenu: React.FC<IProfileMenuProps> = ({
                 </Box>
 
                 <Divider className='divider-menuitem' />
+
+                <MenuItem className='menuitem-profileitem' onClick={() => setOpenMyProfileDialog(true)}>
+                    <ListItemIcon>
+                        <AccountCircle fontSize="small" />
+                    </ListItemIcon>
+
+                    {translate('myProfile')}
+                </MenuItem>
+
+                <Divider className='divider-menuitem' />
                 
                 <MenuItem className='menuitem-profileitem logout' onClick={handleOpenLogoutDialog}>
                     <ListItemIcon>
@@ -57,6 +71,12 @@ const ProfileMenu: React.FC<IProfileMenuProps> = ({
                     {translate('logout')}
                 </MenuItem>
             </Dialog>
+
+            <MyProfileDialog 
+                title={''} 
+                open={openMyProfileDialog} 
+                handleClose={() => setOpenMyProfileDialog(false)} 
+            />
         </>
     );
 }

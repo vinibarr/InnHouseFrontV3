@@ -53,7 +53,7 @@ const AppBar = () => {
 
                     <Avatar 
                         alt={user?.name.toUpperCase()} 
-                        src={user?.name}
+                        src={user?.avatar}
                         className='avatar-user'
                         onClick={() => setOpenProfileMenu(true)}
                     />

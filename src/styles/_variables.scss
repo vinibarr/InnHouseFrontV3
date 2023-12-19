@@ -172,10 +172,7 @@ $admin-navigation-link-expanded-container-background-color: transparent;
 $admin-content-background-color: #f5f5f5;
 
 // Admin - Content (Header)
-$admin-content-header-before-background-color: color.adjust($color-primary, $alpha: -0.3);
-$admin-content-header-before-height: 132px;
-
-$admin-content-header-height: 92px;
-$admin-content-header-title-color: rgba(255, 255, 255, 1);
-$admin-content-header-description-color: rgba(255, 255, 255, 0.9);
-$admin-content-header-iconbutton-color: rgba(255, 255, 255, 1);
+$admin-content-header-height: 80px;
+$admin-content-header-title-color: $color-primary;
+$admin-content-header-description-color: $color-secondary;
+$admin-content-header-iconbutton-color: $color-primary;

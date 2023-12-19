@@ -27,8 +27,8 @@ const SignUp = () => {
     const handleSubmit = useCallback((event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         
-        let formData = FormHelper.GenerateFormData(event);
-        formData = FormHelper.IncludeKeyValueOnFormData(formData, 'type', accessProfile);
+        let formData = FormHelper.Create(event);
+        formData = FormHelper.Add(formData, 'type', accessProfile);
         
         AuthService.SignUp(formData).then(resp => {
             history.push('/');
