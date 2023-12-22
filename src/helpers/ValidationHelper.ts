@@ -1,6 +1,6 @@
 
 
-const ValidateMaxLength = (value: string, maxLength: number, setter: React.Dispatch<React.SetStateAction<any>>) => {
+const MaxLength = (value: string, maxLength: number, setter: React.Dispatch<React.SetStateAction<any>>) => {
     setter(value.substring(0, maxLength));
 }
 
@@ -40,7 +40,7 @@ const IsUrl = (url: string) => {
 
 
 const ValidationHelper = {
-    ValidateMaxLength,
+    MaxLength,
     IsEmpty,
     IsNumber,
     IsEmail,

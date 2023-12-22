@@ -1,0 +1,102 @@
+
+@import '../../../../styles/variables';
+
+
+.myproperty-steps-content {
+    .scalein-animation {
+        animation: scale_in 0.4s;
+    }
+
+    .step-content-title {
+        display: inline-block;
+        font-size: 24px;
+        color: $color-secondary;
+        font-weight: 600;
+        animation: scale_in 0.4s;
+    }
+
+    .steps-list {
+        .step-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid $color-secondary;
+            padding: 12px;
+            gap: 20px;
+
+            .step-item-title {
+                font-size: 18px;
+                line-height: 20px;
+                animation: scale_in 0.4s;
+            }
+
+            .step-item-icon {
+                font-size: 40px;
+                color: $color-secondary;
+                animation: scale_in 0.4s;
+            }
+        }
+    }
+
+    .option-list {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 40px;
+
+        .option-item {
+            width: 160px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            animation: scale_in 0.4s;
+
+            .option-item-title {
+                font-size: 18px;
+                line-height: 20px;
+                margin-top: 8px;
+                transition: 0.2s;
+            }
+
+            .option-item-image {
+                width: 100%;
+                height: auto;
+                border-radius: $component-default-border-radius;
+                background-color: $component-default-background-color-grey;
+                padding: 32px;
+                box-sizing: border-box;
+                transition: 0.2s;
+            }
+
+            .option-item-input {
+                opacity: 0;
+            }
+
+            &:hover, &.active {
+                .option-item-title {
+                    color: $color-secondary;
+                }
+    
+                .option-item-image {
+                    background-color: $color-secondary;
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: $screen-size-sm) {
+    .myproperty-steps-content {
+        .option-list {
+            justify-content: center;
+
+            .option-item {
+                width: 40%;
+            }
+        }
+    }
+}

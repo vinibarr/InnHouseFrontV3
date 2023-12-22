@@ -58,6 +58,36 @@ const DefaultTranslation = {
         en_us: "Add",
         es_es: "Agregar"
     },
+
+    addPhotosAndInformation: {
+        pt_br: "Adicione fotos e informações",
+        en_us: "Add photos and information",
+        es_es: "Añadir fotos e información"
+    },
+
+    addProperty: {
+        pt_br: "Adicionar propriedade",
+        en_us: "Add property",
+        es_es: "Agregar propiedad"
+    },
+
+    address: {
+        pt_br: "Endereço",
+        en_us: "Address",
+        es_es: "Dirección"
+    },
+
+    approval: {
+        pt_br: "Aprovação",
+        en_us: "Approval",
+        es_es: "Aprobación"
+    },
+
+    back: {
+        pt_br: "Voltar",
+        en_us: "Back",
+        es_es: "Volver"
+    },
     
     broker: {
         pt_br: "Corretor",
@@ -71,10 +101,28 @@ const DefaultTranslation = {
         es_es: "Cancelar"
     },
 
+    city: {
+        pt_br: "Cidade",
+        en_us: "City",
+        es_es: "Ciudad"
+    },
+
+    complement: {
+        pt_br: "Complemento",
+        en_us: "Complement",
+        es_es: "Complementar"
+    },
+
     copyright: {
         pt_br: "© Copyright 2023. Todos os direitos reservados",
         en_us: "© Copyright 2023. All rights reserved",
         es_es: "© Copyright 2023. Todos los derechos reservados"
+    },
+
+    describeYourProperty: {
+        pt_br: "Descreva sua propriedade",
+        en_us: "Describe your property",
+        es_es: "Describe tu propiedad"
     },
 
     email: {
@@ -125,16 +173,34 @@ const DefaultTranslation = {
         es_es: "Nombre"
     },
 
+    neighborhood: {
+        pt_br: "Bairro",
+        en_us: "Neighborhood",
+        es_es: "Vecindario"
+    },
+
     newHere: {
         pt_br: "Ainda não tem conta?",
         en_us: "Don't have an account yet?",
         es_es: "¿Aún no tiene una cuenta?"
     },
 
+    next: {
+        pt_br: "Próximo",
+        en_us: "Next",
+        es_es: "Próximo"
+    },
+
     no: {
         pt_br: "Não",
         en_us: "No",
         es_es: "No"
+    },
+
+    number: {
+        pt_br: "Número",
+        en_us: "Number",
+        es_es: "Número"
     },
 
     owner: {
@@ -147,6 +213,18 @@ const DefaultTranslation = {
         pt_br: "Senha",
         en_us: "Password",
         es_es: "Contraseña"
+    },
+
+    publish: {
+        pt_br: "Publicar",
+        en_us: "Publish",
+        es_es: "Publicar"
+    },
+
+    quickAndSimple: {
+        pt_br: "Rápido e simples!",
+        en_us: "Quick and simple!",
+        es_es: "¡Rápido y sencillo!"
     },
 
     registerNow: {
@@ -191,17 +269,65 @@ const DefaultTranslation = {
         es_es: "Ahorrar"
     },
 
+    sendingDocuments: {
+        pt_br: "Envio de documentos",
+        en_us: "Sending documents",
+        es_es: "Envío de documentos"
+    },
+
+    start: {
+        pt_br: "Começar",
+        en_us: "Start",
+        es_es: "Comenzar"
+    },
+
+    state: {
+        pt_br: "UF",
+        en_us: "State",
+        es_es: "Estado"
+    },
+
+    step: {
+        pt_br: "Etapa",
+        en_us: "Step",
+        es_es: "Paso"
+    },
+
     user: {
         pt_br: "Usuário",
         en_us: "User",
         es_es: "Usuario"
     },
 
+    whereIsYourPropertyLocated: {
+        pt_br: "Onde sua propriedade está localizada?",
+        en_us: "Where is your property located?",
+        es_es: "¿Dónde está ubicada su propiedad?"
+    },
+
+    whichOptionDescribesYourProperty: {
+        pt_br: "Qual opção descreve sua propriedade?",
+        en_us: "Which option describes your property?",
+        es_es: "¿Qué opción describe su propiedad?"
+    },
+
     yes: {
         pt_br: "Sim",
         en_us: "Yes",
         es_es: "Sí"
-    }
+    },
+
+    zipCode: {
+        pt_br: "CEP",
+        en_us: "Zip code",
+        es_es: "Código postal"
+    },
+
+    zipCodeNotFound: {
+        pt_br: "CEP não encontrado",
+        en_us: "Zip code not found",
+        es_es: "Código postal no encontrado"
+    },
 }
 
 export default DefaultTranslation;

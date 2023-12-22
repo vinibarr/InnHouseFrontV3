@@ -23,6 +23,16 @@
     }
 
 
+    &.flexdirection-rowreverse {
+        flex-direction: row-reverse;
+
+        .MuiButton-startIcon {
+            margin-right: -4px;
+            margin-left: 8px;
+        }
+    }
+
+
     // Sizes
     &.small {
         height: 36px !important;
@@ -77,7 +87,7 @@
     .button-default {
         &:not(.text-alwaysshow) {
             .MuiButton-startIcon {
-                margin: 0px;
+                margin: 0px !important;
                 
                 ~ .MuiTypography-root {
                     display: none;

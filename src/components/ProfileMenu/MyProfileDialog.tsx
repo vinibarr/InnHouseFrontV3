@@ -102,7 +102,7 @@ const MyProfileDialog: React.FunctionComponent<Pick<IDialogProps, 'title' | 'ope
                                 label={translate('name')}
                                 name='name'
                                 value={name}
-                                onChange={e => ValidationHelper.ValidateMaxLength(e.target.value.trim(), 100, setName)}
+                                onChange={e => ValidationHelper.MaxLength(e.target.value.trim(), 100, setName)}
                             />
                         </Grid>
 
@@ -112,7 +112,7 @@ const MyProfileDialog: React.FunctionComponent<Pick<IDialogProps, 'title' | 'ope
                                 label={translate('email')}
                                 name='email'
                                 value={email}
-                                onChange={e => ValidationHelper.ValidateMaxLength(e.target.value.trim(), 100, setEmail)}
+                                onChange={e => ValidationHelper.MaxLength(e.target.value.trim(), 100, setEmail)}
                             />
                         </Grid>
                     </Grid>

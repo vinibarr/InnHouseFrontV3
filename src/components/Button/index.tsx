@@ -1,6 +1,6 @@
 
 import './style.scss';
-import { Check, Close, FilterAlt } from '@mui/icons-material';
+import { ArrowBack, ArrowForward, Check, Close } from '@mui/icons-material';
 import { useLanguageContext } from '../../contexts/LanguageContext';
 import { Button as MuiButton, Typography } from '@mui/material';
 
@@ -56,7 +56,7 @@ export default Button;
 
 
 interface IActionButtonProps {
-    action: 'close' | 'save' | 'cancel' | 'yes' | 'no' | 'apply' | 'view';
+    action: 'close' | 'save' | 'cancel' | 'yes' | 'no' | 'next' | 'back' | 'start';
     type?: 'button' | 'submit' | 'reset';
     disabled?: boolean;
     fullWidth?: boolean;
@@ -79,7 +79,7 @@ const ActionButton: React.FC<IActionButtonProps> = ({
     if (action === 'save') {
         return <Button
             label={translate('save')}
-            className={`small background-blue ${className}`}
+            className={`small background-secondary ${className}`}
             size='medium'
             fullWidth={false}
             disabled={disabled}
@@ -105,7 +105,7 @@ const ActionButton: React.FC<IActionButtonProps> = ({
     if (action === 'yes') {
         return <Button
             label={translate('yes')}
-            className={`small background-red ${className}`}
+            className={`small background-primary ${className}`}
             size='medium'
             fullWidth={false}
             disabled={disabled}
@@ -128,28 +128,41 @@ const ActionButton: React.FC<IActionButtonProps> = ({
         />;
     }
 
-    if (action === 'apply') {
+    if (action === 'next') {
         return <Button
-            label={translate('apply')}
-            className={`small background-blue ${className}`}
+            label={translate('next')}
+            className={`small background-primary ${className}`}
             size='medium'
             fullWidth={fullWidth}
             disabled={disabled}
             type={type}
-            startIcon={startIcon ?? <FilterAlt />}
+            startIcon={startIcon ?? <ArrowForward />}
             onClick={onClick}
         />;
     }
 
-    if (action === 'view') {
+    if (action === 'start') {
         return <Button
-            label={translate('view')}
-            className={`small background-blue ${className}`}
+            label={translate('start')}
+            className={`small background-primary ${className}`}
             size='medium'
             fullWidth={fullWidth}
             disabled={disabled}
             type={type}
-            startIcon={startIcon ?? <Check />}
+            startIcon={startIcon ?? <ArrowForward />}
+            onClick={onClick}
+        />;
+    }
+
+    if (action === 'back') {
+        return <Button
+            label={translate('back')}
+            className={`small ${className}`}
+            size='medium'
+            fullWidth={fullWidth}
+            disabled={disabled}
+            type={type}
+            startIcon={startIcon ?? <ArrowBack />}
             onClick={onClick}
         />;
     }

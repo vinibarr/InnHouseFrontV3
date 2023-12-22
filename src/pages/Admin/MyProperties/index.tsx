@@ -19,7 +19,7 @@ const MyProperties = () => {
             </Grid>
                 
             <Grid item className='grid-tools'>
-                <Tooltip title={translate('add')}>
+                <Tooltip title={translate('addProperty')}>
                     <IconButton onClick={() => history.push('/my-properties/add')}>
                         <Add />
                     </IconButton>
