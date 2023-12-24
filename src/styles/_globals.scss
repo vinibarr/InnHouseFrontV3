@@ -248,7 +248,7 @@ img {
 .backgroundcolor-paper { background-color: $component-paper-default-background-color !important; }
 
 
-//Divider
+// Divider
 .MuiDivider-root {
     border-color: $component-divider-default-border-color !important;
 }
@@ -279,4 +279,11 @@ img {
     @media only screen and (max-width: $screen-size-sm) {
         width: 80% !important;
     }
+}
+
+
+// Select
+.MuiList-root {
+    min-width: 120px !important;
+    padding: 20px 0px !important;
 }

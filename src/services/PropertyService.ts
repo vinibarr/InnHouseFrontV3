@@ -11,8 +11,20 @@ const ListOfTypes = async (formData: FormData) => {
     });
 }
 
+
+const ListOfAmenities = async (formData: FormData) => {
+    return AxiosHelper.get('/comodidades', {
+        params: {
+            ...Object.fromEntries(formData),
+            token: null
+        }
+    });
+}
+
+
 const PropertyService = {
-    ListOfTypes
+    ListOfTypes,
+    ListOfAmenities
 }
 
 export default PropertyService;

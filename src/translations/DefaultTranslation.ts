@@ -65,6 +65,12 @@ const DefaultTranslation = {
         es_es: "Añadir fotos e información"
     },
 
+    addPhotosOfYourProperty: {
+        pt_br: "Adicione fotos da sua propriedade",
+        en_us: "Add photos of your property",
+        es_es: "Agregue fotos de su propiedad"
+    },
+
     addProperty: {
         pt_br: "Adicionar propriedade",
         en_us: "Add property",
@@ -87,6 +93,24 @@ const DefaultTranslation = {
         pt_br: "Voltar",
         en_us: "Back",
         es_es: "Volver"
+    },
+
+    bathrooms: {
+        pt_br: "Banheiros",
+        en_us: "Bathrooms",
+        es_es: "Baños"
+    },
+
+    bedrooms: {
+        pt_br: "Quartos",
+        en_us: "Bedrooms",
+        es_es: "Volver"
+    },
+
+    beds: {
+        pt_br: "Camas",
+        en_us: "Beds",
+        es_es: "Camas"
     },
     
     broker: {
@@ -141,6 +165,24 @@ const DefaultTranslation = {
         pt_br: "Hóspede",
         en_us: "Guest",
         es_es: "Huésped"
+    },
+
+    guests: {
+        pt_br: "Hóspedes",
+        en_us: "Guests",
+        es_es: "Huéspedes"
+    },
+
+    informationAboutYourProperty: {
+        pt_br: "Informações sobre sua propriedade",
+        en_us: "Information about your property",
+        es_es: "Información sobre su propiedad"
+    },
+
+    isTheMapCorrect: {
+        pt_br: "O mapa está correto?",
+        en_us: "Is the map correct?",
+        es_es: "¿El mapa es correcto?"
     },
 
     logon: {
@@ -297,6 +339,12 @@ const DefaultTranslation = {
         pt_br: "Usuário",
         en_us: "User",
         es_es: "Usuario"
+    },
+    
+    whatAmenitiesDoesYourPropertyOffer: {
+        pt_br: "Quais comodidades sua propriedade oferece?",
+        en_us: "What amenities does your property offer?",
+        es_es: "¿Qué comodidades ofrece su propiedad?"
     },
 
     whereIsYourPropertyLocated: {

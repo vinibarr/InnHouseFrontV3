@@ -9,6 +9,11 @@ import Step1_1 from "./Step1_1";
 import Step1_2 from "./Step1_2";
 import Step1_3 from "./Step1_3";
 import Step1_4 from './Step1_4';
+import Step1_5 from './Step1_5';
+import Step1_6 from './Step1_6';
+import Step2_1 from './Step2_1';
+import Step2_2 from './Step2_2';
+import Step2_3 from './Step2_3';
 
 
 const stepList = [
@@ -20,11 +25,22 @@ const stepList = [
         component: Step1_3,
     }, {
         component: Step1_4,
+    }, {
+        component: Step1_5,
+    }, {
+        component: Step1_6,
+    }, {
+        component: Step2_1,
+    }, {
+        component: Step2_2,
+    }, {
+        component: Step2_3,
     }
 ]
 
 const AddEditProperty = () => {
     const [step, setStep] = useState<number>(0);
+
 
     const handleSubmit = useCallback((event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -40,13 +56,16 @@ const AddEditProperty = () => {
         // eslint-disable-next-line
     }, [step]);
 
+
     const handleNextStep = useCallback(() => {
         setStep(step + 1);
     }, [step]);
 
+
     const handleBackStep = useCallback(() => {
         setStep(step - 1);
     }, [step]);
+
 
     return <>
         <Grid item xs={12} className='grid-header'>

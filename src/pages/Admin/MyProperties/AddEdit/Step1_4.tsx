@@ -75,6 +75,7 @@ const Step1_4: React.FunctionComponent<IPropertyAddEditStepProps> = ({
                         value={zipCode}
                         onChange={(e) => ValidationHelper.MaxLength(StringHelper.OnlyNumbers(e.target.value.trim()), 8, setZipCode)}
                         onBlur={handleFindZipCode}
+                        className="scalein-animation"
                     />
                 </Grid>
 
@@ -85,6 +86,7 @@ const Step1_4: React.FunctionComponent<IPropertyAddEditStepProps> = ({
                         required={active}
                         value={address}
                         onChange={(e) => setAddress(e.target.value)}
+                        className='scalein-animation'
                     />
                 </Grid>
 
@@ -95,6 +97,7 @@ const Step1_4: React.FunctionComponent<IPropertyAddEditStepProps> = ({
                         required={false}
                         value={number}
                         onChange={(e) => setNumber(e.target.value)}
+                        className='scalein-animation'
                     />
                 </Grid>
 
@@ -105,6 +108,7 @@ const Step1_4: React.FunctionComponent<IPropertyAddEditStepProps> = ({
                         required={active}
                         value={neighborhood}
                         onChange={(e) => setNeighborhood(e.target.value)}
+                        className='scalein-animation'
                     />
                 </Grid>
 
@@ -115,6 +119,7 @@ const Step1_4: React.FunctionComponent<IPropertyAddEditStepProps> = ({
                         required={active}
                         value={city}
                         onChange={(e) => setCity(e.target.value)}
+                        className='scalein-animation'
                     />
                 </Grid>
 
@@ -125,6 +130,7 @@ const Step1_4: React.FunctionComponent<IPropertyAddEditStepProps> = ({
                         required={active}
                         value={state}
                         onChange={(e) => setState(e.target.value)}
+                        className='scalein-animation'
                     />
                 </Grid>
 
@@ -135,6 +141,7 @@ const Step1_4: React.FunctionComponent<IPropertyAddEditStepProps> = ({
                         required={false}
                         value={complement}
                         onChange={(e) => setComplement(e.target.value)}
+                        className='scalein-animation'
                     />
                 </Grid>
             </Grid>

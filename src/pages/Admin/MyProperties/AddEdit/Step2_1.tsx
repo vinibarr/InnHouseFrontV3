@@ -2,9 +2,9 @@ import { Grid, Typography } from "@mui/material";
 import { IPropertyAddEditStepProps } from "../../../../interfaces/IProperty";
 import { useLanguageContext } from "../../../../contexts/LanguageContext";
 import DefaultConstants from "../../../../data/Constants";
-import { KingBed } from "@mui/icons-material";
+import { Image } from "@mui/icons-material";
 
-const Step1_2: React.FunctionComponent<IPropertyAddEditStepProps> = ({
+const Step2_1: React.FunctionComponent<IPropertyAddEditStepProps> = ({
     className
 }) => {
     const { translate } = useLanguageContext();
@@ -12,16 +12,16 @@ const Step1_2: React.FunctionComponent<IPropertyAddEditStepProps> = ({
     return <Grid container className={className} rowSpacing={DefaultConstants.gridRowSpacing}>
         <Grid item xs={12} marginBottom={2}>
             <Typography className='step-content-title'>
-                {translate('step')} 1
+                {translate('step')} 2
             </Typography>
         </Grid>
 
         <Grid item xs={12} className='steps-list'>
             <Grid item lg={6} md={8} sm={12} xs={12} className='step-item'>
                 <Typography className='step-item-title'>
-                    1. {translate('describeYourProperty')}
+                    2. {translate('addPhotosAndInformation')}
                 </Typography>
-                <KingBed className='step-item-icon' />
+                <Image className='step-item-icon' />
             </Grid>
 
             <Grid item xs={12} paddingX={2} paddingY={4}>
@@ -50,4 +50,4 @@ const Step1_2: React.FunctionComponent<IPropertyAddEditStepProps> = ({
     </Grid>;
 }
 
-export default Step1_2;
+export default Step2_1;
