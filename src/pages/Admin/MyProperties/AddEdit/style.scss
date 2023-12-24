@@ -142,6 +142,77 @@
 }
 
 
+.completed-container {
+    display: flex;
+    flex-direction: column !important;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: 800px !important;
+    padding: 20px 0px;
+
+    .completed-container-icon {
+        color: $component-default-background-color-green;
+        font-size: 120px !important;
+        animation: scale_in 0.4s;
+    }
+
+    .completed-container-title {
+        color: $color-secondary;
+        font-size: 40px;
+        line-height: 42px;
+        font-weight: 600;
+        margin: 12px 0px 8px 0px;
+        animation: scale_in 0.4s;
+    }
+
+    .completed-container-subtitle {
+        color: $color-secondary;
+        font-size: 28px;
+        line-height: 30px;
+        animation: scale_in 0.4s;
+    }
+
+    .completed-container-description {
+        font-size: 16px;
+        margin: 40px 0px 40px 0px;
+        animation: scale_in 0.4s;
+    }
+}
+
+
+.myproperty-steps-footer {
+    .stepper-box {
+        width: 200px;
+        background-color: $component-paper-default-background-color;
+        box-shadow: $component-default-box-shadow;
+        border-radius: $component-default-border-radius;
+        padding: 8px 40px 12px 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .stepper-box-title {
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+        
+        .MuiMobileStepper-root {
+            width: 100%;
+            padding: 0px !important;
+            background-color: transparent !important;
+
+            .MuiLinearProgress-root {
+                width: 100%;
+                height: 8px;
+                border-radius: $component-default-border-radius;
+            }
+        }
+    }
+}
+
+
 @media screen and (max-width: $screen-size-sm) {
     .myproperty-steps-content {
         .option-list {
@@ -151,16 +222,26 @@
                 width: 40%;
             }
         }
+
+        .select-box {
+            .select-box-title {
+                font-size: 16px !important;
+                padding: 0px 24px !important;
+            }
+            
+            .select-box-input {
+                min-width: 80px !important;
+            }
+        }
     }
 
-    .select-box {
-        .select-box-title {
-            font-size: 16px !important;
-            padding: 0px 24px !important;
-        }
-        
-        .select-box-input {
-            min-width: 80px !important;
+
+    .myproperty-steps-footer {
+        gap: 12px;
+
+        .stepper-box {
+            width: 100%;
+            padding: 8px 12px 12px 12px;
         }
     }
 }

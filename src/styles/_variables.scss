@@ -145,6 +145,12 @@ $component-radiooption-selected-default-color: #fff;
 
 
 
+// Stepper
+$component-stepper-container-default-background-color: color.adjust($color-primary, $alpha: -0.8);
+$component-stepper-progress-default-background-color: $color-primary;
+
+
+
 // Admin - Appbar
 $admin-appbar-width: 80px;
 $admin-appbar-height: 60px;

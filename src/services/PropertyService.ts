@@ -22,9 +22,20 @@ const ListOfAmenities = async (formData: FormData) => {
 }
 
 
+const ListOfFeatures = async (formData: FormData) => {
+    return AxiosHelper.get('/caracteristicas', {
+        params: {
+            ...Object.fromEntries(formData),
+            token: null
+        }
+    });
+}
+
+
 const PropertyService = {
     ListOfTypes,
-    ListOfAmenities
+    ListOfAmenities,
+    ListOfFeatures
 }
 
 export default PropertyService;

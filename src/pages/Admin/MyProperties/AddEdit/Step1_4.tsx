@@ -71,6 +71,7 @@ const Step1_4: React.FunctionComponent<IPropertyAddEditStepProps> = ({
                         label={translate('zipCode')}
                         type="number"
                         name='cep'
+                        variant="outlined"
                         required={active}
                         value={zipCode}
                         onChange={(e) => ValidationHelper.MaxLength(StringHelper.OnlyNumbers(e.target.value.trim()), 8, setZipCode)}
@@ -83,6 +84,7 @@ const Step1_4: React.FunctionComponent<IPropertyAddEditStepProps> = ({
                     <TextField
                         label={translate('address')}
                         name='logradouro'
+                        variant="outlined"
                         required={active}
                         value={address}
                         onChange={(e) => setAddress(e.target.value)}
@@ -94,6 +96,7 @@ const Step1_4: React.FunctionComponent<IPropertyAddEditStepProps> = ({
                     <TextField
                         label={translate('number')}
                         name='numero'
+                        variant="outlined"
                         required={false}
                         value={number}
                         onChange={(e) => setNumber(e.target.value)}
@@ -105,6 +108,7 @@ const Step1_4: React.FunctionComponent<IPropertyAddEditStepProps> = ({
                     <TextField
                         label={translate('neighborhood')}
                         name='bairro'
+                        variant="outlined"
                         required={active}
                         value={neighborhood}
                         onChange={(e) => setNeighborhood(e.target.value)}
@@ -116,6 +120,7 @@ const Step1_4: React.FunctionComponent<IPropertyAddEditStepProps> = ({
                     <TextField
                         label={translate('city')}
                         name='cidade'
+                        variant="outlined"
                         required={active}
                         value={city}
                         onChange={(e) => setCity(e.target.value)}
@@ -127,6 +132,7 @@ const Step1_4: React.FunctionComponent<IPropertyAddEditStepProps> = ({
                     <TextField
                         label={translate('state')}
                         name='estado'
+                        variant="outlined"
                         required={active}
                         value={state}
                         onChange={(e) => setState(e.target.value)}
@@ -138,6 +144,7 @@ const Step1_4: React.FunctionComponent<IPropertyAddEditStepProps> = ({
                     <TextField
                         label={translate('complement')}
                         name='complemento'
+                        variant="outlined"
                         required={false}
                         value={complement}
                         onChange={(e) => setComplement(e.target.value)}

@@ -287,3 +287,13 @@ img {
     min-width: 120px !important;
     padding: 20px 0px !important;
 }
+
+
+// Stepper
+.MuiLinearProgress-root {
+    background-color: $component-stepper-container-default-background-color !important;
+
+    .MuiLinearProgress-bar {
+        background-color: $component-stepper-progress-default-background-color !important;
+    }
+}

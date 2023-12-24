@@ -21,7 +21,7 @@ const Step1_6: React.FunctionComponent<IPropertyAddEditStepProps> = ({
     return <Grid container className={className} rowSpacing={DefaultConstants.gridRowSpacing}>
         <Grid item xs={12} marginBottom={2}>
             <Typography className='step-content-title'>
-                {translate('isTheMapCorrect')}
+                {translate('informationAboutYourProperty')}
             </Typography>
         </Grid>
 

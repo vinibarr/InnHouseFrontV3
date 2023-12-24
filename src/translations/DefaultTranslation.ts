@@ -149,6 +149,12 @@ const DefaultTranslation = {
         es_es: "Describe tu propiedad"
     },
 
+    description: {
+        pt_br: "Descrição",
+        en_us: "Description",
+        es_es: "Descripción"
+    },
+
     email: {
         pt_br: "E-mail",
         en_us: "Email",
@@ -159,6 +165,18 @@ const DefaultTranslation = {
         pt_br: "Esqueceu a senha?",
         en_us: "Forgot password?",
         es_es: "¿Olvido la contraseña?"
+    },
+
+    giveYourPropertyCharacter: {
+        pt_br: "Dê uma característica a sua propriedade",
+        en_us: "Give your property a character",
+        es_es: "Dale carácter a tu propiedad"
+    },
+
+    giveYourPropertyTitleAndDescription: {
+        pt_br: "Dê um título a sua propriedade e a descreva",
+        en_us: "Give your property a title and description",
+        es_es: "Dale a tu propiedad un título y una descripción"
     },
 
     guest: {
@@ -245,6 +263,12 @@ const DefaultTranslation = {
         es_es: "Número"
     },
 
+    of: {
+        pt_br: "De",
+        en_us: "Of",
+        es_es: "De"
+    },
+
     owner: {
         pt_br: "Proprietário",
         en_us: "Owner",
@@ -317,6 +341,12 @@ const DefaultTranslation = {
         es_es: "Envío de documentos"
     },
 
+    sendYourPropertyDocuments: {
+        pt_br: "Envie os documentos da sua propriedade",
+        en_us: "Send your property documents",
+        es_es: "Envía tus documentos de propiedad"
+    },
+
     start: {
         pt_br: "Começar",
         en_us: "Start",
@@ -333,6 +363,18 @@ const DefaultTranslation = {
         pt_br: "Etapa",
         en_us: "Step",
         es_es: "Paso"
+    },
+
+    thanks: {
+        pt_br: "Obrigado!",
+        en_us: "Thanks!",
+        es_es: "¡Gracias!"
+    },
+
+    title: {
+        pt_br: "Título",
+        en_us: "Title",
+        es_es: "Título"
     },
 
     user: {
@@ -363,6 +405,12 @@ const DefaultTranslation = {
         pt_br: "Sim",
         en_us: "Yes",
         es_es: "Sí"
+    },
+
+    yourRegistrationHasBeenCompleted: {
+        pt_br: "Seu cadastro foi concluído",
+        en_us: "Your registration has been completed",
+        es_es: "Su registro ha sido completado"
     },
 
     zipCode: {
