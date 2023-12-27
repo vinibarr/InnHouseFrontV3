@@ -2,7 +2,7 @@ import './style.scss';
 import { Box, Grid, MobileStepper, Typography } from "@mui/material";
 import ContentTitle from "../../../../components/Content/ContentTitle";
 import { ActionButton } from "../../../../components/Button";
-import { useCallback, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { history } from "../../../../router/BrowserHistory";
 import FormHelper from "../../../../helpers/FormHelper";
 import Step1_1 from "./Step1_1";
@@ -29,53 +29,70 @@ const stepList = [
     {
         stepNumber: 1,
         component: Step1_1,
+        className: ''
     }, {
         stepNumber: 1,
         component: Step1_2,
+        className: ''
     }, {
         stepNumber: 1,
         component: Step1_3,
+        className: ''
     }, {
         stepNumber: 1,
         component: Step1_4,
+        className: ''
     }, {
         stepNumber: 1,
         component: Step1_5,
+        className: ''
     }, {
         stepNumber: 1,
         component: Step1_6,
+        className: ''
     }, {
         stepNumber: 2,
         component: Step2_1,
+        className: ''
     }, {
         stepNumber: 2,
         component: Step2_2,
+        className: ''
     }, {
         stepNumber: 2,
         component: Step2_3,
+        className: ''
     }, {
         stepNumber: 2,
         component: Step2_4,
+        className: ''
     }, {
         stepNumber: 2,
         component: Step2_5,
+        className: ''
     }, {
         stepNumber: 2,
         component: Step2_6,
+        className: 'padding-none'
     }, {
         stepNumber: 3,
         component: Step3_1,
+        className: ''
     }, {
         stepNumber: 4,
         component: Step4_1,
+        className: ''
     }, {
         stepNumber: 4,
         component: Step4_2,
+        className: ''
     }
 ]
 
 const AddEditProperty = () => {
     const { translate } = useLanguageContext();
+
+    const formRef = useRef<HTMLFormElement>(null);
 
     const [step, setStep] = useState<number>(0);
     const [completed, setCompleted] = useState<boolean>(false);
@@ -110,6 +127,9 @@ const AddEditProperty = () => {
     }, [step]);
 
 
+    console.log(Object.fromEntries(new FormData(formRef.current ?? undefined)))
+
+
     return <>
         <Grid item xs={12} className='grid-header'>
             <Grid item className='grid-title'>
@@ -119,18 +139,24 @@ const AddEditProperty = () => {
             </Grid>
         </Grid>
 
-        <Grid container component='form' onSubmit={handleSubmit} className={`grid-content ${completed ? 'overflow-enabled justifycontent-center' : 'with-footer'}`}>
+        <Grid container 
+            component='form' 
+            onSubmit={handleSubmit} 
+            className={`grid-content ${completed ? 'overflow-enabled justifycontent-center' : 'with-footer'}`}
+            ref={formRef}
+        >
             {
                 completed ? (
                     <Completed />
                 ) : (
                     <>
-                        <Grid item xs={12} className='section-content myproperty-steps-content'>
+                        <Grid item xs={12} className={`section-content myproperty-steps-content ${currentStep.className}`}>
                             {
                                 stepList.map((s, index) => {
                                     const active = index === step;
 
-                                    return <s.component 
+                                    return <s.component
+                                        formData={new FormData(formRef.current ?? undefined)} 
                                         active={active}
                                         key={index} 
                                         className={active ? '' : 'display-none'} 

@@ -31,6 +31,7 @@ export interface IPropertyFeature {
 
 
 export interface IPropertyAddEditStepProps {
+	formData: FormData;
 	active: boolean;
 	className: string;
 }

@@ -71,7 +71,7 @@ const Step1_6: React.FunctionComponent<IPropertyAddEditStepProps> = ({
 
                         <Box className='select-box-input'>
                             <SelectField
-                                name="quartos"
+                                name="camas"
                                 data={defaultNumbers}
                                 value={bedsNumber}
                                 required={active}
@@ -89,7 +89,7 @@ const Step1_6: React.FunctionComponent<IPropertyAddEditStepProps> = ({
 
                         <Box className='select-box-input'>
                             <SelectField
-                                name="quartos"
+                                name="banheiros"
                                 data={defaultNumbers}
                                 value={bathroomsNumber}
                                 required={active}

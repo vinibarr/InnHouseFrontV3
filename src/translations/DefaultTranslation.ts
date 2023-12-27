@@ -137,6 +137,12 @@ const DefaultTranslation = {
         es_es: "Complementar"
     },
 
+    confirmYourPropertyInformation: {
+        pt_br: "Confirme as informações da sua propriedade",
+        en_us: "Confirm your property information",
+        es_es: "Confirma la información de tu propiedad"
+    },
+
     copyright: {
         pt_br: "© Copyright 2023. Todos os direitos reservados",
         en_us: "© Copyright 2023. All rights reserved",

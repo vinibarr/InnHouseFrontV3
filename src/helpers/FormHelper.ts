@@ -23,10 +23,6 @@ const Add = (formData: FormData, key: string, value: string | number | Blob | un
     if (value === undefined) {
         return formData;
     }
-    
-    if (formData.has(key)) {
-        formData.delete(key);
-    }
 
     if (typeof value === 'number') {
         value = value.toString();
