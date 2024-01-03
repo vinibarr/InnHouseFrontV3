@@ -57,7 +57,7 @@ const Step2_3: React.FunctionComponent<IPropertyAddEditStepProps> = ({
             dataTransfer.items.add(p);
 
             const input = document.createElement('input');
-            input.name = `fotos[${index}]`;
+            input.name = `foto[${index}]`;
             input.type = 'file';
             input.className = 'display-none';
             input.files = dataTransfer.files;
