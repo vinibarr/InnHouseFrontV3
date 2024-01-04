@@ -23,6 +23,8 @@ import Step3_1 from './Step3_1';
 import Step4_1 from './Step4_1';
 import Step4_2 from './Step4_2';
 import Completed from './Completed';
+import DefaultConstants from '../../../../data/Constants';
+import { useJsApiLoader } from '@react-google-maps/api';
 
 
 const stepList = [
@@ -92,6 +94,11 @@ const stepList = [
 const AddEditProperty = () => {
     const { translate } = useLanguageContext();
 
+    const { isLoaded } = useJsApiLoader({
+        id: 'google-map-property-add-edit',
+        googleMapsApiKey: DefaultConstants.googleMapsApiKey
+    });
+
     const formRef = useRef<HTMLFormElement>(null);
 
     const [step, setStep] = useState<number>(0);
@@ -127,9 +134,6 @@ const AddEditProperty = () => {
     }, [step]);
 
 
-    console.log(Object.fromEntries(new FormData(formRef.current ?? undefined)))
-
-
     return <>
         <Grid item xs={12} className='grid-header'>
             <Grid item className='grid-title'>
@@ -158,6 +162,7 @@ const AddEditProperty = () => {
                                     return <s.component
                                         formData={new FormData(formRef.current ?? undefined)} 
                                         active={active}
+                                        googleMapsApiLoaded={isLoaded}
                                         key={index} 
                                         className={active ? '' : 'display-none'} 
                                     />;

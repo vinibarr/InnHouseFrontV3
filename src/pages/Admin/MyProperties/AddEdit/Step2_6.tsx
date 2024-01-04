@@ -6,9 +6,11 @@ import { Image } from "@mui/icons-material";
 import { useEffect, useMemo, useState } from "react";
 import FormHelper from "../../../../helpers/FormHelper";
 import PropertyService from "../../../../services/PropertyService";
+import { GoogleMap, Marker } from "@react-google-maps/api";
 
 const Step2_6: React.FunctionComponent<IPropertyAddEditStepProps> = ({
     formData,
+    googleMapsApiLoaded,
     className
 }) => {
     const { translate, language } = useLanguageContext();
@@ -29,7 +31,7 @@ const Step2_6: React.FunctionComponent<IPropertyAddEditStepProps> = ({
         const entries = Object.entries(fromEntries);
 
         return {
-            imagens: entries.filter(([key, value]) => key.includes('fotos')).map(([key, value]) => value as File),
+            imagens: entries.filter(([key, value]) => key.includes('foto')).map(([key, value]) => value as File),
             titulo: fromEntries.titulo?.toString(),
             descricao: fromEntries.descricao?.toString(),
             hospedes: fromEntries.hospedes?.toString(),
@@ -37,7 +39,11 @@ const Step2_6: React.FunctionComponent<IPropertyAddEditStepProps> = ({
             camas: fromEntries.camas?.toString(),
             banheiros: fromEntries.banheiros?.toString(),
             comodidades: entries.map(([key, value]) => key.includes('comodidade') ? value.toString() : '0'),
-            endereco: `${fromEntries.logradouro?.toString()}, ${fromEntries.numero ? `${fromEntries.numero.toString()}, ` : ''}${fromEntries.bairro?.toString()}, ${fromEntries.cidade?.toString()} - ${fromEntries.estado?.toString()}`
+            endereco: `${fromEntries.logradouro?.toString()}, ${fromEntries.numero ? `${fromEntries.numero.toString()}, ` : ''}${fromEntries.bairro?.toString()}, ${fromEntries.cidade?.toString()} - ${fromEntries.estado?.toString()}`,
+            coordenadas: {
+                lat: +(fromEntries.latitude?.toString() ?? '0'),
+                lng: +(fromEntries.longitude?.toString() ?? '0')
+            }
         };
     }, [formData]);
 
@@ -117,6 +123,30 @@ const Step2_6: React.FunctionComponent<IPropertyAddEditStepProps> = ({
 
                 <Grid item xs={12}>
                     <Typography variant='caption' className='textoverflow-ellipsis overflow-hidden whitespace-nowrap display-block'>{data.endereco}</Typography>
+                </Grid>
+
+                <Grid item xs={12}>
+                    <Divider />
+                </Grid>
+
+                <Grid item xs={12}>
+                    {
+                        googleMapsApiLoaded && <GoogleMap
+                            mapContainerStyle={{
+                                height: '100%',
+                                minHeight: '300px',
+                                width: '100%'
+                            }}
+                            center={data.coordenadas}
+                            zoom={18}
+                            options={{
+                                fullscreenControl: false,
+                                streetViewControl: false
+                            }}
+                        >
+                            <Marker position={data.coordenadas} />
+                        </GoogleMap>
+                    }
                 </Grid>
             </Grid>
         </Grid>

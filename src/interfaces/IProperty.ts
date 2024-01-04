@@ -33,5 +33,6 @@ export interface IPropertyFeature {
 export interface IPropertyAddEditStepProps {
 	formData: FormData;
 	active: boolean;
+	googleMapsApiLoaded: boolean;
 	className: string;
 }

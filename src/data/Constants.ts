@@ -21,6 +21,8 @@ const DefaultConstants = {
 
     gridRowSpacing: 2,
     gridColumnSpacing: 2,
+
+    googleMapsApiKey: 'AIzaSyB5I7chQarmuWcrxOU9v3s2AVxx7yjWGhk'
 };
 
 const systemNameFormatted = DefaultConstants.system.name.toLowerCase().replace(/ /g, '').toLowerCase();

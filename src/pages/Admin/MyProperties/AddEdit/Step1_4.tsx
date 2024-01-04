@@ -3,15 +3,17 @@ import { IPropertyAddEditStepProps } from "../../../../interfaces/IProperty";
 import { useLanguageContext } from "../../../../contexts/LanguageContext";
 import DefaultConstants from "../../../../data/Constants";
 import TextField from "../../../../components/TextField";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import UtilsService from "../../../../services/UtilsService";
 import { useNotificationContext } from "../../../../contexts/NotificationContext";
 import ValidationHelper from "../../../../helpers/ValidationHelper";
-import { IZipCode } from "../../../../interfaces/IUtils";
+import { ICoordinates, IZipCode } from "../../../../interfaces/IUtils";
 import StringHelper from "../../../../helpers/StringHelper";
+import { GoogleMap, Marker } from "@react-google-maps/api";
 
 const Step1_4: React.FunctionComponent<IPropertyAddEditStepProps> = ({
     active,
+    googleMapsApiLoaded,
     className
 }) => {
     const { translate } = useLanguageContext();
@@ -24,6 +26,8 @@ const Step1_4: React.FunctionComponent<IPropertyAddEditStepProps> = ({
     const [city, setCity] = useState<string>('');
     const [state, setState] = useState<string>('');
     const [complement, setComplement] = useState<string>('');
+
+    const [coordinates, setCoordinates] = useState<ICoordinates | undefined>(undefined);
 
 
     const handleFindZipCode = useCallback(() => {
@@ -55,18 +59,38 @@ const Step1_4: React.FunctionComponent<IPropertyAddEditStepProps> = ({
 
         // eslint-disable-next-line
     }, [zipCode]);
+
+
+    useEffect(() => {
+        if (googleMapsApiLoaded && active) {
+            const geocoder = new window.google.maps.Geocoder();
+
+            geocoder.geocode({
+                address: `${address}, ${number}, ${city}, ${state}` 
+            }, function (results, status) {
+                if (status.toUpperCase() === 'OK') {
+                    setCoordinates(results !== null ? {
+                        lat: results[0].geometry.location.lat() ?? 0, 
+                        lng: results[0].geometry.location.lng() ?? 0
+                    } : undefined);
+                } else {
+                    setCoordinates(undefined);
+                }
+            });
+        }
+    }, [googleMapsApiLoaded, address, number, city, state, active]);
     
 
-    return <Grid container className={className} rowSpacing={DefaultConstants.gridRowSpacing}>
+    return <Grid container className={className} rowSpacing={DefaultConstants.gridRowSpacing} columnSpacing={DefaultConstants.gridColumnSpacing}>
         <Grid item xs={12} marginBottom={2}>
             <Typography className='step-content-title'>
                 {translate('whereIsYourPropertyLocated')}
             </Typography>
         </Grid>
 
-        <Grid item lg={6} xs={12}>
+        <Grid item xs={12}>
             <Grid container rowSpacing={DefaultConstants.gridRowSpacing} columnSpacing={DefaultConstants.gridColumnSpacing}>
-                <Grid item lg={6} md={6} sm={8} xs={12}>
+                <Grid item lg={2} md={3} sm={8} xs={12}>
                     <TextField
                         label={translate('zipCode')}
                         type="number"
@@ -80,7 +104,7 @@ const Step1_4: React.FunctionComponent<IPropertyAddEditStepProps> = ({
                     />
                 </Grid>
 
-                <Grid item xs={8}>
+                <Grid item lg={6} md={6} sm={8} xs={8}>
                     <TextField
                         label={translate('address')}
                         name='logradouro'
@@ -92,7 +116,7 @@ const Step1_4: React.FunctionComponent<IPropertyAddEditStepProps> = ({
                     />
                 </Grid>
 
-                <Grid item xs={4}>
+                <Grid item lg={4} md={3} sm={4} xs={4}>
                     <TextField
                         label={translate('number')}
                         name='numero'
@@ -104,7 +128,7 @@ const Step1_4: React.FunctionComponent<IPropertyAddEditStepProps> = ({
                     />
                 </Grid>
 
-                <Grid item lg={4} xs={6}>
+                <Grid item lg={3} xs={6}>
                     <TextField
                         label={translate('neighborhood')}
                         name='bairro'
@@ -116,7 +140,7 @@ const Step1_4: React.FunctionComponent<IPropertyAddEditStepProps> = ({
                     />
                 </Grid>
 
-                <Grid item lg={4} xs={6}>
+                <Grid item lg={3} xs={6}>
                     <TextField
                         label={translate('city')}
                         name='cidade'
@@ -128,7 +152,7 @@ const Step1_4: React.FunctionComponent<IPropertyAddEditStepProps> = ({
                     />
                 </Grid>
 
-                <Grid item lg={4} xs={6}>
+                <Grid item lg={3} xs={6}>
                     <TextField
                         label={translate('state')}
                         name='estado'
@@ -140,7 +164,7 @@ const Step1_4: React.FunctionComponent<IPropertyAddEditStepProps> = ({
                     />
                 </Grid>
 
-                <Grid item lg={12} xs={6}>
+                <Grid item lg={3} xs={6}>
                     <TextField
                         label={translate('complement')}
                         name='complemento'
@@ -154,8 +178,24 @@ const Step1_4: React.FunctionComponent<IPropertyAddEditStepProps> = ({
             </Grid>
         </Grid>
 
-        <Grid item lg={6} xs={12}>
-            mapa
+        <Grid item xs={12}>
+            {
+                googleMapsApiLoaded && coordinates && <GoogleMap
+                    mapContainerStyle={{
+                        height: '100%',
+                        minHeight: '300px',
+                        width: '100%'
+                    }}
+                    center={coordinates}
+                    zoom={18}
+                    options={{
+                        fullscreenControl: false,
+                        streetViewControl: false
+                    }}
+                >
+                    <Marker position={coordinates} />
+                </GoogleMap>
+            }
         </Grid>
     </Grid>;
 }

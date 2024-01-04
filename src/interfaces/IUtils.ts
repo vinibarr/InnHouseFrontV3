@@ -13,3 +13,9 @@ export interface IZipCode {
 	siafi?: string;
 	uf?: string;
 }
+
+
+export interface ICoordinates {
+	lat: number;
+	lng: number;
+}
