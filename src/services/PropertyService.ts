@@ -2,6 +2,11 @@
 import { AxiosHelper } from '../helpers/AxiosHelper';
 
 
+const Add = async (formData: FormData) => {
+    return AxiosHelper.post('/newproperty', formData);
+}
+
+
 const ListOfTypes = async (formData: FormData) => {
     return AxiosHelper.get('/tiposdetipos', {
         params: {
@@ -33,6 +38,7 @@ const ListOfFeatures = async (formData: FormData) => {
 
 
 const PropertyService = {
+    Add,
     ListOfTypes,
     ListOfAmenities,
     ListOfFeatures

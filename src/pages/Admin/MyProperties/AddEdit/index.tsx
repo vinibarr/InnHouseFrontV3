@@ -25,6 +25,7 @@ import Step4_2 from './Step4_2';
 import Completed from './Completed';
 import DefaultConstants from '../../../../data/Constants';
 import { useJsApiLoader } from '@react-google-maps/api';
+import PropertyService from '../../../../services/PropertyService';
 
 
 const stepList = [
@@ -117,9 +118,10 @@ const AddEditProperty = () => {
         }
 
         const formData = FormHelper.Create(event);
-        console.log(Object.fromEntries(formData));
-
-        setCompleted(true);
+        PropertyService.Add(formData).then(resp => {
+            setCompleted(true);
+        }).catch(err => {});
+        
         // eslint-disable-next-line
     }, [step]);
 
