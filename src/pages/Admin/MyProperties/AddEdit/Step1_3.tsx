@@ -10,7 +10,7 @@ const Step1_3: React.FunctionComponent<IPropertyAddEditStepProps> = ({
     active,
     className
 }) => {
-    const { translate, language } = useLanguageContext();
+    const { translate } = useLanguageContext();
     
     const [types, setTypes] = useState<IPropertyType[]>([]);
     const [selected, setSelected] = useState<number | undefined>(undefined);
@@ -32,14 +32,12 @@ const Step1_3: React.FunctionComponent<IPropertyAddEditStepProps> = ({
         <Grid item xs={12} className='option-list'>
             {
                 types.map(t => {
-                    const title = t[`descr_${language.value.split('-')[0]}` as keyof(IPropertyType)] as string;
-
                     const checked = t.id === selected;
                     const className = checked ? 'active' : '';
 
                     return <Grid item key={t.id} className={`option-item ${className}`} onClick={() => setSelected(t.id)}>
-                        <img src={t.caminho_imagem} alt={title} className='option-item-image' />
-                        <Typography className='option-item-title'>{title}</Typography>
+                        <img src={t.caminho_imagem} alt={t.descr} className='option-item-image' />
+                        <Typography className='option-item-title'>{t.descr}</Typography>
                         <input type="radio" name="tipo" className='option-item-input' value={t.id} checked={checked} required={active} />
                     </Grid>;
                 })
