@@ -1,4 +1,4 @@
-import { Grid, IconButton } from "@mui/material";
+import { Box, Grid, IconButton, Typography } from "@mui/material";
 import ContentTitle from "../../../components/Content/ContentTitle";
 import DefaultConstants from "../../../data/Constants";
 import Tooltip from "../../../components/Tooltip";
@@ -6,9 +6,22 @@ import { Add } from "@mui/icons-material";
 import { useLanguageContext } from "../../../contexts/LanguageContext";
 import PropertyCard from "../../../components/PropertyCard";
 import { history } from "../../../router/BrowserHistory";
+import { useEffect, useState } from "react";
+import { IProperty } from "../../../interfaces/IProperty";
+import FormHelper from "../../../helpers/FormHelper";
+import PropertyService from "../../../services/PropertyService";
 
 const MyProperties = () => {
     const { translate } = useLanguageContext();
+
+    const [properties, setProperties] = useState<IProperty[]>([]);
+
+    useEffect(() => {
+        const formData = FormHelper.Create(undefined);
+        PropertyService.List(formData).then(resp => {
+            setProperties(resp.data as IProperty[]);
+        }).catch(err => {});
+    }, []);
 
     return <>
         <Grid item xs={12} className='grid-header'>
@@ -19,11 +32,13 @@ const MyProperties = () => {
             </Grid>
                 
             <Grid item className='grid-tools'>
-                <Tooltip title={translate('addProperty')}>
-                    <IconButton onClick={() => history.push('/my-properties/add')}>
-                        <Add />
-                    </IconButton>
-                </Tooltip>
+                {
+                    properties.length > 0 && <Tooltip title={translate('addProperty')}>
+                        <IconButton onClick={() => history.push('/my-properties/add')}>
+                            <Add />
+                        </IconButton>
+                    </Tooltip>
+                }
             </Grid>
         </Grid>
 
@@ -33,21 +48,32 @@ const MyProperties = () => {
             columnSpacing={DefaultConstants.gridColumnSpacing * 2}
         >
             {
-                [
-                    'https://conteudo.imguol.com.br/c/entretenimento/21/2021/01/13/the-one-e-anunciada-como-a-maior-mansao-do-mundo-e-podera-ser-a-mais-cara-ja-vendida-na-america-1610544079895_v2_4x3.jpg',
-                    'https://b6d3c5t3.rocketcdn.me/wp-content/uploads/2022/02/Mansao-de-Alto-Luxo-frente-mar-a-venda-em-Interlagos-Bahia-1.jpg',
-                    'https://imagens-revista.vivadecora.com.br/uploads/2020/07/mansao-de-luxo-com-piscina-e-area-gourmet-homify.jpg',
-                    'https://b6d3c5t3.rocketcdn.me/wp-content/uploads/2023/06/Mansao-dupla-de-frente-para-o-mar-em-Guarajuba-50-1240x719.jpeg',
-                    'https://imagens-revista.vivadecora.com.br/uploads/2020/07/mansao-de-luxo-com-piscina-e-area-gourmet-homify.jpg',
-                    'https://b6d3c5t3.rocketcdn.me/wp-content/uploads/2023/06/Mansao-dupla-de-frente-para-o-mar-em-Guarajuba-50-1240x719.jpeg'
-                ].map((url, index) => {
-                    return <Grid item lg={3} md={4} sm={6} xs={12} key={index}>
-                        <PropertyCard
-                            image={url}
-                            title={`Minha propriedade ${index}`}
-                        />
+                properties.length === 0 ? <>
+                    <Grid item xs={12} className='display-flex height-100pc flexdirection-column justifycontent-center textalign-center'>
+                        <Box>
+                            <IconButton className='color-primary' onClick={() => history.push('/my-properties/add')}>
+                                <Add className='fontsize-80' />
+                            </IconButton>
+                        </Box>
+
+                        <Typography variant='body1' className='fontsize-24' marginTop={0.8}>
+                            {translate('addProperty')}
+                        </Typography>
                     </Grid>
-                })
+                </> : <>
+                    {
+                        properties.map(p => {
+                            const image = p.fotos.length > 0 ? p.fotos[0].nome_servidor : '';
+        
+                            return <Grid item lg={3} md={4} sm={6} xs={12} key={p.id}>
+                                <PropertyCard
+                                    image={image}
+                                    title={p.descricao}
+                                />
+                            </Grid>
+                        })
+                    }
+                </>
             }
         </Grid>
     </>;

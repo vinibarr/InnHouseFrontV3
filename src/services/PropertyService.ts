@@ -7,6 +7,15 @@ const Add = async (formData: FormData) => {
 }
 
 
+const List = async (formData: FormData) => {
+    return AxiosHelper.get('/getallproperty', {
+        params: {
+            ...Object.fromEntries(formData),
+        }
+    });
+}
+
+
 const ListOfTypes = async (formData: FormData) => {
     return AxiosHelper.get('/tiposdetipos', {
         params: {
@@ -39,6 +48,7 @@ const ListOfFeatures = async (formData: FormData) => {
 
 const PropertyService = {
     Add,
+    List,
     ListOfTypes,
     ListOfAmenities,
     ListOfFeatures

@@ -43,6 +43,9 @@ img {
 .alignitems-flexstart { align-items: flex-start !important; }
 .aligncontent-flexstart { align-content: flex-start !important; }
 
+.flexdirection-column { flex-direction: column !important; }
+.flexdirection-row { flex-direction: row !important; }
+
 .gap-8 { gap: 8px !important; }
 .gap-10 { gap: 10px !important; }
 .gap-12 { gap: 12px !important; }
@@ -92,6 +95,8 @@ img {
 
 
 .width-100pc { width: 100% !important; }
+
+.height-100pc { height: 100% !important; }
 
 
 .text-color-1 { color: $component-text-default-color-1 !important; }

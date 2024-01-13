@@ -10,7 +10,7 @@ import useForceRender from "../../../../hooks/useForceRender";
 const Step2_2: React.FunctionComponent<IPropertyAddEditStepProps> = ({
     className
 }) => {
-    const { translate, language } = useLanguageContext();
+    const { translate } = useLanguageContext();
     const forceRender = useForceRender();
     
     const [amenities, setAmenities] = useState<IPropertyAmenity[]>([]);
@@ -49,14 +49,12 @@ const Step2_2: React.FunctionComponent<IPropertyAddEditStepProps> = ({
         <Grid item xs={12} className='option-list'>
             {
                 amenities.map(a => {
-                    const title = a[`descr_${language.value.split('-')[0]}` as keyof(IPropertyAmenity)] as string;
-
                     const checked = selected.includes(a.id);
                     const className = checked ? 'active' : '';
 
                     return <Grid item key={a.id} className={`option-item ${className}`} onClick={() => handleChangeSelected(a.id)}>
-                        <img src={a.caminho_imagem} alt={title} className='option-item-image' />
-                        <Typography className='option-item-title'>{title}</Typography>
+                        <img src={a.caminho_imagem} alt={a.descr} className='option-item-image' />
+                        <Typography className='option-item-title'>{a.descr}</Typography>
                         <input type="checkbox" name={`comodidade[${a.id}]`} className='option-item-input' value={a.id} checked={checked} />
                     </Grid>;
                 })

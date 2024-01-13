@@ -13,7 +13,7 @@ const Step2_6: React.FunctionComponent<IPropertyAddEditStepProps> = ({
     googleMapsApiLoaded,
     className
 }) => {
-    const { translate, language } = useLanguageContext();
+    const { translate } = useLanguageContext();
 
     const [amenities, setAmenities] = useState<IPropertyAmenity[]>([]);
 
@@ -78,11 +78,9 @@ const Step2_6: React.FunctionComponent<IPropertyAddEditStepProps> = ({
                     <Grid container className='preview-container-content-amenities'>
                         {
                             amenities.filter(a => data.comodidades.includes(a.id.toString())).map(a => {
-                                const title = a[`descr_${language.value.split('-')[0]}` as keyof(IPropertyAmenity)] as string;
-
                                 return <Grid item className='preview-container-content-amenities-item'>
-                                    <img src={a.caminho_imagem} alt={title} className='preview-container-content-amenities-item-image' />
-                                    <Typography className='preview-container-content-amenities-item-title'>{title}</Typography>
+                                    <img src={a.caminho_imagem} alt={a.descr} className='preview-container-content-amenities-item-image' />
+                                    <Typography className='preview-container-content-amenities-item-title'>{a.descr}</Typography>
                                 </Grid>
                             })
                         }
