@@ -84,7 +84,7 @@ const Step4_2: React.FunctionComponent<IPropertyAddEditStepProps> = ({
                 value=''
                 multiple={true}
                 onChange={handleAddFile}
-                accept="application/pdf"
+                accept="application/pdf, image/*"
                 className='display-none'
             />
 
