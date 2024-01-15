@@ -8,11 +8,7 @@ const Add = async (formData: FormData) => {
 
 
 const List = async (formData: FormData) => {
-    return AxiosHelper.get('/getallproperty', {
-        params: {
-            ...Object.fromEntries(formData),
-        }
-    });
+    return AxiosHelper.post('/getallproperty', formData);
 }
 
 
