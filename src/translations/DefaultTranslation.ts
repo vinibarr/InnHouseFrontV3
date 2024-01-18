@@ -305,6 +305,12 @@ const DefaultTranslation = {
         es_es: "¡Regístrate ahora!"
     },
 
+    repeatPassword: {
+        pt_br: "Repita a senha",
+        en_us: "Repeat password",
+        es_es: "Repita la contraseña"
+    },
+
     resetPassword: {
         pt_br: "Redefinir senha",
         en_us: "Reset password",

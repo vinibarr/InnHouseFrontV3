@@ -16,6 +16,7 @@ const ResetPassword = () => {
     const { search } = useLocation();
 
     const [password, setPassword] = useState<string>('');
+    const [repeatPassword, setRepeatPassword] = useState<string>('');
 
 
     const handleSubmit = useCallback((event: React.FormEvent<HTMLFormElement>) => {
@@ -57,6 +58,16 @@ const ResetPassword = () => {
                                 name='pass' 
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
+                            />
+                        </Grid>
+
+                        <Grid item xs={12}>
+                            <TextField 
+                                type='password'
+                                label={translate('repeatPassword')}
+                                name='repeatPass' 
+                                value={repeatPassword}
+                                onChange={(e) => setRepeatPassword(e.target.value)}
                             />
                         </Grid>
                     </Grid>

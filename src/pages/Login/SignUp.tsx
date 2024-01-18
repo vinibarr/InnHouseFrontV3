@@ -11,6 +11,7 @@ import { history } from '../../router/BrowserHistory';
 import TermsAndConditionsDialog from './TermsAndConditionsDialog';
 import RadioButtonGroup from '../../components/RadioButtonGroup';
 import { AccessProfileData, AccessProfileEnum } from '../../data/Enums';
+import DefaultConstants from '../../data/Constants';
 
 
 const SignUp = () => {
@@ -20,6 +21,7 @@ const SignUp = () => {
     const [name, setName] = useState<string>('');
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
+    const [repeatPassword, setRepeatPassword] = useState<string>('');
 
     const [termsAndConditionsOpen, setTermsAndConditionsOpen] = useState<boolean>(false);
 
@@ -85,14 +87,26 @@ const SignUp = () => {
                             />
                         </Grid>
 
-                        <Grid item xs={12}>
-                            <TextField 
-                                type='password'
-                                label={translate('password')}
-                                name='pass' 
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                            />
+                        <Grid container columnSpacing={DefaultConstants.gridColumnSpacing}>
+                            <Grid item lg={6} md={6} sm={12} xs={12}>
+                                <TextField 
+                                    type='password'
+                                    label={translate('password')}
+                                    name='pass' 
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                />
+                            </Grid>
+
+                            <Grid item lg={6} md={6} sm={12} xs={12}>
+                                <TextField 
+                                    type='password'
+                                    label={translate('repeatPassword')}
+                                    name='repeatPass' 
+                                    value={repeatPassword}
+                                    onChange={(e) => setRepeatPassword(e.target.value)}
+                                />
+                            </Grid>
                         </Grid>
 
                         <Grid item xs={12} marginTop={4}>

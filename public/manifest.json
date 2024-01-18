@@ -1,10 +1,10 @@
 {
-  "theme_color": "#043458",
+  "theme_color": "#e5153f",
   "background_color": "#ffffff",
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
-  "name": "Inn House",
+  "name": "Inn House Brasil",
   "short_name": "Inn House",
   "icons": [
       {
