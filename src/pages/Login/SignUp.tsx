@@ -7,7 +7,7 @@ import { useLanguageContext } from '../../contexts/LanguageContext';
 import AuthService from '../../services/AuthService';
 import ToolsBar from '../../components/Login/ToolsBar';
 import FormHelper from '../../helpers/FormHelper';
-import { history } from '../../router/BrowserHistory';
+import { history } from '../../router/History';
 import TermsAndConditionsDialog from './TermsAndConditionsDialog';
 import RadioButtonGroup from '../../components/RadioButtonGroup';
 import { AccessProfileData, AccessProfileEnum } from '../../data/Enums';

@@ -6,7 +6,7 @@ import TextField from '../../components/TextField';
 import Button from '../../components/Button';
 import { useLanguageContext } from '../../contexts/LanguageContext';
 import { useUserContext } from '../../contexts/UserContext';
-import { history } from '../../router/BrowserHistory';
+import { history } from '../../router/History';
 import ToolsBar from '../../components/Login/ToolsBar';
 import FormHelper from '../../helpers/FormHelper';
 

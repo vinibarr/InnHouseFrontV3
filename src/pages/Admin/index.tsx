@@ -5,7 +5,7 @@ import Content from '../../components/Content';
 import { Redirect, Route, Router, Switch } from 'react-router-dom';
 import MyProperties from './MyProperties';
 import AddEditProperty from './MyProperties/AddEdit';
-import { history } from '../../router/BrowserHistory';
+import { history } from '../../router/History';
 
 const Admin = () => {
     return (

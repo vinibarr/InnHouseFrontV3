@@ -3,7 +3,7 @@ import './toolsbar.scss'
 import { Avatar, Grid, IconButton } from '@mui/material';
 import { useLanguageContext } from '../../contexts/LanguageContext';
 import Languages from '../../data/Languages';
-import { history } from '../../router/BrowserHistory';
+import { history } from '../../router/History';
 import { ArrowBack } from '@mui/icons-material';
 
 

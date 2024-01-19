@@ -5,7 +5,7 @@ import Tooltip from "../../../components/Tooltip";
 import { Add } from "@mui/icons-material";
 import { useLanguageContext } from "../../../contexts/LanguageContext";
 import PropertyCard from "../../../components/PropertyCard";
-import { history } from "../../../router/BrowserHistory";
+import { history } from "../../../router/History";
 import { useEffect, useState } from "react";
 import { IProperty } from "../../../interfaces/IProperty";
 import FormHelper from "../../../helpers/FormHelper";

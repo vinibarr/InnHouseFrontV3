@@ -1,9 +1,9 @@
 
-import { createBrowserHistory } from 'history';
+import { createHashHistory } from 'history';
 import DefaultConstants from '../data/Constants';
 
 
-const history = createBrowserHistory({
+const history = createHashHistory({
     basename: DefaultConstants.publicUrl
 });
 

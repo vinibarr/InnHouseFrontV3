@@ -6,7 +6,7 @@ import { useLanguageContext } from '../../contexts/LanguageContext';
 import AuthService from '../../services/AuthService';
 import ToolsBar from '../../components/Login/ToolsBar';
 import FormHelper from '../../helpers/FormHelper';
-import { history } from '../../router/BrowserHistory';
+import { history } from '../../router/History';
 import { useLocation } from 'react-router-dom';
 import TextField from '../../components/TextField';
 

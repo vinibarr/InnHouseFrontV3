@@ -1,6 +1,6 @@
 import './style.scss';
 import { Redirect, Route, Router, Switch } from "react-router-dom";
-import { history } from "../../router/BrowserHistory";
+import { history } from "../../router/History";
 import Login from "./Login";
 import ForgotPassword from './ForgotPassword';
 import SignUp from './SignUp';

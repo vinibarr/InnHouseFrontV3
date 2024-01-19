@@ -2,7 +2,7 @@ import { Grid, Typography } from "@mui/material";
 import { useLanguageContext } from "../../../../contexts/LanguageContext";
 import { Check } from "@mui/icons-material";
 import { ActionButton } from "../../../../components/Button";
-import { history } from "../../../../router/BrowserHistory";
+import { history } from "../../../../router/History";
 
 const Completed = () => {
     const { translate } = useLanguageContext();

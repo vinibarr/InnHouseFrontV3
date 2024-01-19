@@ -3,7 +3,7 @@ import { Box, Grid, MobileStepper, Typography } from "@mui/material";
 import ContentTitle from "../../../../components/Content/ContentTitle";
 import { ActionButton } from "../../../../components/Button";
 import { useCallback, useRef, useState } from "react";
-import { history } from "../../../../router/BrowserHistory";
+import { history } from "../../../../router/History";
 import FormHelper from "../../../../helpers/FormHelper";
 import Step1_1 from "./Step1_1";
 import Step1_2 from "./Step1_2";
