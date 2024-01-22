@@ -92,7 +92,7 @@ const stepList = [
     }
 ]
 
-const AddEditProperty = () => {
+const AddProperty = () => {
     const { translate } = useLanguageContext();
 
     const { isLoaded } = useJsApiLoader({
@@ -212,4 +212,4 @@ const AddEditProperty = () => {
 }
 
 
-export default AddEditProperty;
+export default AddProperty;

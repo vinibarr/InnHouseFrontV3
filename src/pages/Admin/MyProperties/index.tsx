@@ -14,13 +14,16 @@ import PropertyService from "../../../services/PropertyService";
 const MyProperties = () => {
     const { translate } = useLanguageContext();
 
+    const [loading, setLoading] = useState<boolean>(true);
     const [properties, setProperties] = useState<IProperty[]>([]);
 
     useEffect(() => {
         const formData = FormHelper.Create(undefined);
         PropertyService.List(formData).then(resp => {
             setProperties(resp.data as IProperty[]);
-        }).catch(err => {});
+        }).catch(err => {}).finally(() => {
+            setLoading(false);
+        });
     }, []);
 
     return <>
@@ -48,7 +51,9 @@ const MyProperties = () => {
             columnSpacing={DefaultConstants.gridColumnSpacing * 2}
         >
             {
-                properties.length === 0 ? <>
+                loading ? <>
+                    
+                </> : properties.length === 0 ? <>
                     <Grid item xs={12} className='display-flex height-100pc flexdirection-column justifycontent-center textalign-center'>
                         <Box>
                             <IconButton className='color-primary' onClick={() => history.push('/my-properties/add')}>
@@ -69,6 +74,7 @@ const MyProperties = () => {
                                 <PropertyCard
                                     image={image}
                                     title={p.descricao}
+                                    onClick={() => history.push(`/my-properties/${p.id}`)}
                                 />
                             </Grid>
                         })

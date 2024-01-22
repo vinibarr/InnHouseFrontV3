@@ -25,6 +25,9 @@ const DefaultConstants = {
     googleMapsApiKey: 'AIzaSyB5I7chQarmuWcrxOU9v3s2AVxx7yjWGhk'
 };
 
+console.log(DefaultConstants);
+console.log(process.env);
+
 const systemNameFormatted = DefaultConstants.system.name.toLowerCase().replace(/ /g, '').toLowerCase();
 const StorageConstants = {
     languageStorageName: `${systemNameFormatted}_currentlanguage`,

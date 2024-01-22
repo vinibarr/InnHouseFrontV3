@@ -5,7 +5,7 @@ import DefaultConstants from "../../../../data/Constants";
 import { Image } from "@mui/icons-material";
 import { useEffect, useMemo, useState } from "react";
 import FormHelper from "../../../../helpers/FormHelper";
-import PropertyService from "../../../../services/PropertyService";
+import UtilsService from "../../../../services/UtilsService";
 import { GoogleMap, Marker } from "@react-google-maps/api";
 
 const Step2_6: React.FunctionComponent<IPropertyAddEditStepProps> = ({
@@ -20,7 +20,7 @@ const Step2_6: React.FunctionComponent<IPropertyAddEditStepProps> = ({
 
     useEffect(() => {
         const formData = FormHelper.Create(undefined);
-        PropertyService.ListOfAmenities(formData).then(resp => {
+        UtilsService.ListOfAmenities(formData).then(resp => {
             setAmenities(resp.data as IPropertyAmenity[]);
         }).catch(err => {});
     }, []);

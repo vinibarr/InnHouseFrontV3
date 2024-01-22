@@ -3,19 +3,19 @@ import './style.scss';
 
 import { useState } from 'react';
 import { Avatar, Box, Grid, IconButton } from '@mui/material';
-import { Logout, Menu, MenuOpen } from '@mui/icons-material';
+import { Logout } from '@mui/icons-material';
 import LogoutDialog from './LogoutDialog';
 import { useLanguageContext } from '../../contexts/LanguageContext';
 import { useUserContext } from '../../contexts/UserContext';
 import DefaultConstants from '../../data/Constants';
 import ProfileMenu from '../ProfileMenu';
+import { history } from '../../router/History';
 
 
 const AppBar = () => {
     const { translate } = useLanguageContext();
     const { user } = useUserContext();
 
-    const [openNavigation, setOpenNavigation] = useState<boolean>(false);
     const [openLogoutDialog, setOpenLogoutDialog] = useState<boolean>(false);
     const [openProfileMenu, setOpenProfileMenu] = useState<boolean>(false);
 
@@ -27,23 +27,15 @@ const AppBar = () => {
                         src={DefaultConstants.system.icon} 
                         alt={DefaultConstants.system.name} 
                         className='icon' 
+                        onClick={() => history.push('/my-properties')}
                     />
 
                     <img 
                         src={DefaultConstants.system.logoHorizontal} 
                         alt={DefaultConstants.system.name} 
                         className='icon full' 
+                        onClick={() => history.push('/my-properties')}
                     />
-                </Grid>
-                
-                <Grid item className='grid-menu'>
-                    <IconButton size="medium" className='iconbutton-action' onClick={() => setOpenNavigation(true)}>
-                        {openNavigation ? <MenuOpen fontSize='medium' /> : <Menu fontSize='medium' />}
-                    </IconButton>
-                </Grid>
-
-                <Grid item className='grid-navigation'>
-
                 </Grid>
 
                 <Grid item className='grid-footer'>

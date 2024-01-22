@@ -30,14 +30,14 @@ const Step1_4: React.FunctionComponent<IPropertyAddEditStepProps> = ({
     const [coordinates, setCoordinates] = useState<ICoordinates | undefined>(undefined);
 
 
-    const handleFindZipCode = useCallback(() => {
+    const handleGetAddress = useCallback(() => {
         if (zipCode.length === 0) {
             return;
         }
         
         showLoading();
 
-        UtilsService.FindZipCode(zipCode).then(resp => {
+        UtilsService.GetAddress(zipCode).then(resp => {
             const data = resp.data as IZipCode;
 
             if (data.erro) {
@@ -99,7 +99,7 @@ const Step1_4: React.FunctionComponent<IPropertyAddEditStepProps> = ({
                         required={active}
                         value={zipCode}
                         onChange={(e) => ValidationHelper.MaxLength(StringHelper.OnlyNumbers(e.target.value.trim()), 8, setZipCode)}
-                        onBlur={handleFindZipCode}
+                        onBlur={handleGetAddress}
                         className="scalein-animation"
                     />
                 </Grid>

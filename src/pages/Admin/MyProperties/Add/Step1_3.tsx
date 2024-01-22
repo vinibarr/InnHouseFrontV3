@@ -3,7 +3,7 @@ import { IPropertyAddEditStepProps, IPropertyType } from "../../../../interfaces
 import DefaultConstants from "../../../../data/Constants";
 import { useLanguageContext } from "../../../../contexts/LanguageContext";
 import { useEffect, useState } from "react";
-import PropertyService from "../../../../services/PropertyService";
+import UtilsService from "../../../../services/UtilsService";
 import FormHelper from "../../../../helpers/FormHelper";
 
 const Step1_3: React.FunctionComponent<IPropertyAddEditStepProps> = ({
@@ -17,7 +17,7 @@ const Step1_3: React.FunctionComponent<IPropertyAddEditStepProps> = ({
 
     useEffect(() => {
         const formData = FormHelper.Create(undefined);
-        PropertyService.ListOfTypes(formData).then(resp => {
+        UtilsService.ListOfTypes(formData).then(resp => {
             setTypes(resp.data as IPropertyType[]);
         }).catch(err => {});
     }, []);
