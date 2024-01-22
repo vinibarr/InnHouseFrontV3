@@ -78,7 +78,7 @@ const Step2_6: React.FunctionComponent<IPropertyAddEditStepProps> = ({
                     <Grid container className='preview-container-content-amenities'>
                         {
                             amenities.filter(a => data.comodidades.includes(a.id.toString())).map(a => {
-                                return <Grid item className='preview-container-content-amenities-item'>
+                                return <Grid item className='preview-container-content-amenities-item' key={a.id}>
                                     <img src={a.caminho_imagem} alt={a.descr} className='preview-container-content-amenities-item-image' />
                                     <Typography className='preview-container-content-amenities-item-title'>{a.descr}</Typography>
                                 </Grid>

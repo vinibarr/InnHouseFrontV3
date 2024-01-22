@@ -1,5 +1,5 @@
 import './style.scss';
-import { Box, Grid, MobileStepper, Typography } from "@mui/material";
+import { Box, Grid, IconButton, MobileStepper, Typography } from "@mui/material";
 import ContentTitle from "../../../../components/Content/ContentTitle";
 import { ActionButton } from "../../../../components/Button";
 import { useCallback, useRef, useState } from "react";
@@ -26,6 +26,9 @@ import Completed from './Completed';
 import DefaultConstants from '../../../../data/Constants';
 import { useJsApiLoader } from '@react-google-maps/api';
 import PropertyService from '../../../../services/PropertyService';
+import Tooltip from '../../../../components/Tooltip';
+import { Close } from '@mui/icons-material';
+import CancelDialog from './CancelDialog';
 
 
 const stepList = [
@@ -96,13 +99,14 @@ const AddProperty = () => {
     const { translate } = useLanguageContext();
 
     const { isLoaded } = useJsApiLoader({
-        id: 'google-map-property-add-edit',
-        googleMapsApiKey: DefaultConstants.googleMapsApiKey
+        id: DefaultConstants.googleMaps.id,
+        googleMapsApiKey: DefaultConstants.googleMaps.apiKey
     });
 
     const formRef = useRef<HTMLFormElement>(null);
 
     const [step, setStep] = useState<number>(0);
+    const [openCancelDialog, setOpenCancelDialog] = useState<boolean>(false);
     const [completed, setCompleted] = useState<boolean>(false);
 
     const currentStep = stepList[step];
@@ -142,6 +146,16 @@ const AddProperty = () => {
                 <ContentTitle 
                     name='addProperty'
                 />
+            </Grid>
+
+            <Grid item className='grid-tools'>
+                {
+                    !completed && step > 0 && <Tooltip title={translate('cancel')}>
+                        <IconButton onClick={() => setOpenCancelDialog(true)}>
+                            <Close />
+                        </IconButton>
+                    </Tooltip>
+                }
             </Grid>
         </Grid>
 
@@ -208,6 +222,11 @@ const AddProperty = () => {
                 )
             }
         </Grid>
+
+        <CancelDialog
+            open={openCancelDialog}
+            handleClose={() => setOpenCancelDialog(false)}
+        />
     </>;
 }
 

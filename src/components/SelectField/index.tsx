@@ -1,7 +1,7 @@
 
 import './style.scss';
 import { useCallback } from 'react';
-import { FormControl, InputLabel, MenuItem, Select, FormHelperText } from '@mui/material';
+import { FormControl, InputLabel, MenuItem, Select, FormHelperText, Box, Typography } from '@mui/material';
 import { SelectChangeEvent } from "@mui/material";
 
 
@@ -20,6 +20,7 @@ interface ISelectFieldProps {
     multiple?: boolean;
     className?: string;
     onChange: (event: SelectChangeEvent<any>) => void;
+    type?: 'default' | 'personalized1' 
 }
 
 
@@ -37,9 +38,9 @@ const SelectField: React.FC<ISelectFieldProps> = ({
     value = '',
     multiple = false,
     className = '',
-    onChange
+    onChange,
+    type = 'default'
 }) => {
-    
     const constructSelectOptions = useCallback(() => {
         if (customData) {
             return data;
@@ -59,31 +60,47 @@ const SelectField: React.FC<ISelectFieldProps> = ({
         // eslint-disable-next-line
     }, [data]);
 
-    return (
-        <FormControl variant={variant} fullWidth={true} color={color} margin={margin} className={`selectfield-default ${className}`}>
-            {
-                label && <InputLabel>{label}</InputLabel>
-            }
-            
-            <Select
-                label={label}
-                name={name}
-                value={value}
-                disabled={disabled}
-                required={required}
-                multiple={multiple}
-                onChange={onChange}
-            >
-                {
-                    constructSelectOptions()
-                }
-            </Select>
 
-            {
-                helperText && <FormHelperText> {helperText} </FormHelperText>
-            }
-        </FormControl>
-    );
+    const constructSelectContainer = (label?: string) => {
+        return (
+            <FormControl variant={variant} fullWidth={true} color={color} margin={margin} className={`selectfield-default ${className}`}>
+                {
+                    label && <InputLabel>{label}</InputLabel>
+                }
+                
+                <Select
+                    label={label}
+                    name={name}
+                    value={value}
+                    disabled={disabled}
+                    required={required}
+                    multiple={multiple}
+                    onChange={onChange}
+                >
+                    {
+                        constructSelectOptions()
+                    }
+                </Select>
+
+                {
+                    helperText && <FormHelperText> {helperText} </FormHelperText>
+                }
+            </FormControl>
+        );
+    };
+
+    if (type === 'default') {
+        return constructSelectContainer(label);
+    }
+
+
+    return <Box className='selectbox-default'>
+        <Typography className="selectbox-title"> {label} </Typography>
+
+        <Box className='selectbox-input'>
+            {constructSelectContainer(undefined)}
+        </Box>
+    </Box>;
 }
 
 export default SelectField;

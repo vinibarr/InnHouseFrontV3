@@ -17,6 +17,7 @@ export interface IProperty {
 	banheiros: number;
 	quartos: number;
 	pessoas: number;
+	camas: number;
 	latitude: string;
 	longitude: string;
 	governanca: string;

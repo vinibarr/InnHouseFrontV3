@@ -39,106 +39,13 @@
         }
     }
 
-    .option-list {
+    
+    .formoption-container {
         display: flex;
         justify-content: flex-start;
         align-items: baseline;
         flex-wrap: wrap;
-        gap: 10px 40px;
-
-        .option-item {
-            width: 160px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            animation: scale_in 0.4s;
-
-            .option-item-title {
-                font-size: 16px;
-                line-height: 18px;
-                margin-top: 8px;
-                transition: 0.2s;
-                text-align: center;
-            }
-
-            .option-item-image {
-                width: 100%;
-                border-radius: $component-default-border-radius;
-                background-color: $component-default-background-color-grey;
-                padding: 32px;
-                box-sizing: border-box;
-                transition: 0.2s;
-            }
-
-            .option-item-input {
-                opacity: 0;
-            }
-
-            &:hover, &.active {
-                .option-item-title {
-                    color: $color-secondary;
-                }
-    
-                .option-item-image {
-                    background-color: $color-secondary;
-                }
-            }
-        }
-    }
-
-
-    .select-box {
-        width: 100%;
-        height: 60px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: $component-paper-default-background-color;
-        border-radius: $component-default-border-radius;
-        animation: scale_in 0.4s;
-        border: 1px solid rgba(0, 0, 0, 0.1);
-
-        .select-box-title {
-            font-size: 18px;
-            padding: 0px 32px;
-        }
-        
-        .select-box-input {
-            background-color: $color-primary;
-            border-end-end-radius: $component-default-border-radius;
-            border-top-right-radius: $component-default-border-radius;
-            padding-right: 20px;
-            min-width: 120px;
-
-            .MuiFormControl-root {
-                margin: 0px !important;
-                height: 60px;
-                width: 100% !important;
-
-                .MuiInput-root {
-                    &::after, &::before {
-                        border: none;
-                        display: none;
-                    }
-                }
-
-                .MuiSelect-select {
-                    height: 60px !important;
-                    margin: 0px !important;
-                    padding: 0px !important;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    color: #fff !important;
-                }
-
-                .MuiSvgIcon-root {
-                    color: #fff !important;
-                }
-            }
-        }
+        gap: 10px 30px;
     }
 
 
@@ -329,23 +236,8 @@
 
 @media screen and (max-width: $screen-size-sm) {
     .myproperty-steps-content {
-        .option-list {
+        .formoption-container {
             justify-content: center;
-
-            .option-item {
-                width: 40%;
-            }
-        }
-
-        .select-box {
-            .select-box-title {
-                font-size: 16px !important;
-                padding: 0px 24px !important;
-            }
-            
-            .select-box-input {
-                min-width: 80px !important;
-            }
         }
 
         .preview-container {

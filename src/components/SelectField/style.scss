@@ -64,3 +64,69 @@
     height: 16px !important;
     margin-right: 8px !important;
 }
+
+
+
+.selectbox-default {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $component-paper-default-background-color;
+    border-radius: $component-default-border-radius;
+    animation: scale_in 0.4s;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+
+    .selectbox-title {
+        font-size: 18px;
+        padding: 0px 32px;
+    }
+    
+    .selectbox-input {
+        background-color: $color-primary;
+        border-end-end-radius: $component-default-border-radius;
+        border-top-right-radius: $component-default-border-radius;
+        padding-right: 20px;
+        min-width: 120px;
+
+        .MuiFormControl-root {
+            margin: 0px !important;
+            height: 60px;
+            width: 100% !important;
+
+            .MuiInput-root {
+                &::after, &::before {
+                    border: none;
+                    display: none;
+                }
+            }
+
+            .MuiSelect-select {
+                height: 60px !important;
+                margin: 0px !important;
+                padding: 0px !important;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #fff !important;
+            }
+
+            .MuiSvgIcon-root {
+                color: #fff !important;
+            }
+        }
+    }
+
+
+    @media screen and (max-width: $screen-size-sm) {
+        .selectbox-title {
+            font-size: 16px !important;
+            padding: 0px 24px !important;
+        }
+        
+        .selectbox-input {
+            min-width: 80px !important;
+        }
+    }
+}

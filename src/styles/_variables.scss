@@ -137,11 +137,10 @@ $component-drawer-default-width: 320px;
 
 
 
-// Radio Option
-$component-radiooption-default-background-color: #fff;
-$component-radiooption-default-color: $component-text-default-color-1;
-$component-radiooption-selected-default-background-color: color.adjust($color-primary, $alpha: -0.1);
-$component-radiooption-selected-default-color: #fff;
+// Form Option
+$component-formoption-default-background-color: $component-default-background-color-grey;
+$component-formoption-default-color: $component-text-default-color-1;
+$component-formoption-selected-default-background-color: $color-secondary;
 
 
 

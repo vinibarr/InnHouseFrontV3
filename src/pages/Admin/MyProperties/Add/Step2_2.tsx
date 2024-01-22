@@ -6,6 +6,7 @@ import { useCallback, useEffect, useState } from "react";
 import UtilsService from "../../../../services/UtilsService";
 import FormHelper from "../../../../helpers/FormHelper";
 import useForceRender from "../../../../hooks/useForceRender";
+import FormOption from "../../../../components/FormOption";
 
 const Step2_2: React.FunctionComponent<IPropertyAddEditStepProps> = ({
     className
@@ -46,17 +47,19 @@ const Step2_2: React.FunctionComponent<IPropertyAddEditStepProps> = ({
             </Typography>
         </Grid>
 
-        <Grid item xs={12} className='option-list'>
+        <Grid item xs={12} className='formoption-container'>
             {
                 amenities.map(a => {
-                    const checked = selected.includes(a.id);
-                    const className = checked ? 'active' : '';
-
-                    return <Grid item key={a.id} className={`option-item ${className}`} onClick={() => handleChangeSelected(a.id)}>
-                        <img src={a.caminho_imagem} alt={a.descr} className='option-item-image' />
-                        <Typography className='option-item-title'>{a.descr}</Typography>
-                        <input type="checkbox" name={`comodidade[${a.id}]`} className='option-item-input' value={a.id} checked={checked} />
-                    </Grid>;
+                    return <FormOption 
+                        type='checkbox'
+                        title={a.descr}
+                        name={`comodidade[${a.id}]`}
+                        value={a.id}
+                        image={a.caminho_imagem}
+                        selected={selected.includes(a.id)}
+                        onClick={() => handleChangeSelected(a.id)}
+                        key={a.id}
+                    />;
                 })
             }
         </Grid>

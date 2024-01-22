@@ -9,6 +9,14 @@ const DefaultTranslation = {
         es_es: "¿De verdad quieres cerrar la sesión?"
     },
 
+
+    // Add Property
+    _propertyCancelDialogDescription: {
+        pt_br: 'Deseja realmente cancelar a inclusão da propriedade?',
+        en_us: 'Do you really want to cancel the inclusion of the property?',
+        es_es: '¿Realmente desea cancelar la inclusión de la propiedad?'
+    },
+
     
     // Login Screen
     // Sign Up

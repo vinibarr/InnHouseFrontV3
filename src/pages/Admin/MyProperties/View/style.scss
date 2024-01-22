@@ -1,0 +1,148 @@
+
+@import '../../../../styles/variables';
+
+
+.property-container {
+    .property-container-header {
+        background-color: $screen-background-color;
+        height: 400px;
+        padding: 60px;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        border-end-end-radius: $component-default-border-radius;
+        border-end-start-radius: $component-default-border-radius;
+        overflow: hidden;
+        animation: scale_in 0.4s;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(0deg, #000 20%, $color-primary 80%);
+            opacity: 0.4;
+        }
+
+        .property-container-header-title {
+            color: #fff;
+            text-shadow: $component-default-text-shadow;
+            z-index: 1;
+            position: relative;
+            font-size: 28px;
+            line-height: 32px;
+            font-weight: 600;
+            animation: scale_in 0.4s;
+        }
+        
+        .property-container-header-photos {
+            color: #fff;
+            box-shadow: $component-default-box-shadow;
+            z-index: 1;
+            position: relative;
+            background-color: $color-secondary;
+            border-radius: $component-default-border-radius;
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            font-size: 14px;
+
+            .MuiSvgIcon-root {
+                font-size: 18px;
+            }
+        }
+    }
+
+    .property-container-content {
+        background-color: $component-paper-default-background-color;
+        border-radius: $component-default-border-radius;
+        box-shadow: $component-default-box-shadow;
+        padding: 20px 32px;
+        position: relative;
+        top: -40px;
+        animation: scale_in 0.4s;
+
+        .property-container-content-amenities {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow: hidden;
+            overflow-x: auto;
+            align-items: baseline;
+            padding: 0px 0px 12px 0px;
+
+            .property-container-content-amenities-item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                min-width: 120px;
+                max-width: 120px;
+                padding: 0px 4px;
+
+                .property-container-content-amenities-item-image {
+                    width: 60px;
+                    border-radius: $component-default-border-radius;
+                    background-color: $color-secondary;
+                    box-sizing: border-box;
+                }
+
+                .property-container-content-amenities-item-title {
+                    width: 100%;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    font-size: 12px;
+                    margin-top: 4px;
+                    text-align: center;
+                }
+            }
+        }
+
+        .property-container-content-informations {
+            text-align: center;
+            padding: 0px 4px;
+        }
+    }
+}
+
+
+@media screen and (max-width: $screen-size-sm) {
+    .property-container {
+        .property-container-header {
+            height: 400px;
+            padding: 28px 28px 60px 28px;
+        }
+
+        .property-container-content {
+            padding: 20px 20px;
+
+            .property-container-content-amenities {
+                .property-container-content-amenities-item {
+                    min-width: 60px;
+                    max-width: 60px;
+    
+                    .property-container-content-amenities-item-image {
+                        width: 40px;
+                    }
+    
+                    .property-container-content-amenities-item-title {
+                        font-size: 10px;
+                    }
+                }
+            }
+    
+            .property-container-content-informations {
+                font-size: 12px;
+            }
+        }
+    }
+}

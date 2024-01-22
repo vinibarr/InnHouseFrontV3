@@ -5,6 +5,7 @@ import { useLanguageContext } from "../../../../contexts/LanguageContext";
 import { useEffect, useState } from "react";
 import UtilsService from "../../../../services/UtilsService";
 import FormHelper from "../../../../helpers/FormHelper";
+import FormOption from "../../../../components/FormOption";
 
 const Step1_3: React.FunctionComponent<IPropertyAddEditStepProps> = ({
     active,
@@ -29,17 +30,19 @@ const Step1_3: React.FunctionComponent<IPropertyAddEditStepProps> = ({
             </Typography>
         </Grid>
 
-        <Grid item xs={12} className='option-list'>
+        <Grid item xs={12} className='formoption-container'>
             {
                 types.map(t => {
-                    const checked = t.id === selected;
-                    const className = checked ? 'active' : '';
-
-                    return <Grid item key={t.id} className={`option-item ${className}`} onClick={() => setSelected(t.id)}>
-                        <img src={t.caminho_imagem} alt={t.descr} className='option-item-image' />
-                        <Typography className='option-item-title'>{t.descr}</Typography>
-                        <input type="radio" name="tipo" className='option-item-input' value={t.id} checked={checked} required={active} />
-                    </Grid>;
+                    return <FormOption 
+                        type='radio'
+                        title={t.descr}
+                        name="tipo"
+                        value={t.id}
+                        image={t.caminho_imagem}
+                        required={active}
+                        selected={t.id === selected}
+                        onClick={() => setSelected(t.id)}
+                    />;
                 })
             }
         </Grid>

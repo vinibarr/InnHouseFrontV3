@@ -1,0 +1,57 @@
+
+@import '../../styles/variables';
+
+
+.formoption-default {
+    width: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    animation: scale_in 0.4s;
+
+    .formoption-title {
+        font-size: 16px;
+        line-height: 18px;
+        margin-top: 8px;
+        transition: 0.2s;
+        text-align: center;
+        color: $component-formoption-default-color;
+    }
+
+    .formoption-image {
+        width: 100%;
+        border-radius: $component-default-border-radius;
+        background-color: $component-formoption-default-background-color;
+        padding: 32px;
+        box-sizing: border-box;
+        transition: 0.2s;
+    }
+
+    .formoption-input {
+        opacity: 0;
+    }
+
+    &:hover, &.active {
+        .formoption-title {
+            color: $component-formoption-selected-default-background-color;
+        }
+    
+        .formoption-image {
+            background-color: $component-formoption-selected-default-background-color;
+        }
+    }
+
+    &.disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+    }
+}
+
+
+@media screen and (max-width: $screen-size-sm) {
+    .formoption-default {
+        width: 40%;
+    }
+}
