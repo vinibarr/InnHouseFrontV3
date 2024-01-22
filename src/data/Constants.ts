@@ -1,5 +1,5 @@
 
-const { PUBLIC_URL, REACT_APP_API_URL } = process.env;
+const { REACT_APP_API_URL } = process.env;
 const baseUrl = window.location.href ?? '/';
 
 
@@ -8,7 +8,7 @@ const DefaultConstants = {
         name: "Brazil Sales",
     },
 
-    publicUrl: PUBLIC_URL ?? '/',
+    publicUrl: '/',
     apiUrl: `${REACT_APP_API_URL ?? baseUrl}/`,
     
     system: {
@@ -24,9 +24,6 @@ const DefaultConstants = {
 
     googleMapsApiKey: 'AIzaSyB5I7chQarmuWcrxOU9v3s2AVxx7yjWGhk'
 };
-
-console.log(DefaultConstants);
-console.log(process.env);
 
 const systemNameFormatted = DefaultConstants.system.name.toLowerCase().replace(/ /g, '').toLowerCase();
 const StorageConstants = {
